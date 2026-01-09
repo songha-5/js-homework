@@ -49,3 +49,35 @@ console.log(userRatingScore)
 // 12. "알림 수신 동의 여부"를 담는 변수를 선언하고 불리언 타입 값을 설정하세요.
 const notiAgreeStatus = true
 console.log(notiAgreeStatus)
+
+
+
+
+// -------------------------------------------------------
+// -------------------------------------------------------
+// -------------------------------------------------------
+
+
+
+
+// ✍ 함수 작성 과제
+
+//  1. 환영 메시지 생성
+// 회원 등급과 이름을 입력받아 맞춤형 환영 메시지를 출력하는 함수를 작성합니다.
+// VIP 회원 : "🌟 VIP {이름}님, 특별한 혜택이 준비되어 있습니다!"
+// 일반 회원 : "안녕하세요, {이름}님! 즐거운 쇼핑 되세요."
+
+
+function welcomeMessage(name, isVip) {
+  // VIP, 일반회원 유저이름 넣어 환영 문구 출력
+  const vipWelcome = "🌟 VIP " + name + "님, 특별한 혜택이 준비되어 있습니다!"
+  const nomalWelcome = "안녕하세요, " + name + "님! 즐거운 쇼핑 되세요."
+
+  // VIP가 맞다면 vipWelcome문구 출력
+  // VIP가 아니라면 nomalWelcome문구 출력
+  return (isVip && vipWelcome) || (isVip || nomalWelcome)
+}
+
+// welcomeMessage 테스트
+console.log(welcomeMessage('김가가', true))
+console.log(welcomeMessage('김나나', false))
