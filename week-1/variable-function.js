@@ -7,11 +7,10 @@ let movieTitle = '3 IDIOTS'
 console.log(movieTitle)
 
 // 2. "빛의 속도(299,792,458 m/s)"를 담을 상수를 선언하세요.
-const LIGHTSPEED = "299,792,458 m/s"
-console.log(LIGHTSPEED)
+const LIGHT_SPEED = "299,792,458 m/s"
+console.log(LIGHT_SPEED)
 
 // 3. "이메일 인증 완료 여부"를 확인하는 불리언 타입 변수를 선언하고 적절한 값을 할당하세요.
-
 
 // 4. "상품 재고 수량(예: 47개)"을 담는 변수를 선언하고 숫자 값을 할당하세요.
 // 5. "회원 포인트(예: 15,800점)"를 담는 변수를 작성하세요.
