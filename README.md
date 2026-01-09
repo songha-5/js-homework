@@ -1,9 +1,3 @@
-# 폴더 구조
-- week-number로 구성 ``week-1``
-- "RETROSPECT.md"회고 파일 ``RETROSPECT.md``
-- 과제 명칭에 맞는 js 파일 생성 ``variable-function.js``
-
-
 # 커밋 컨밴션
 feat: 새로운 기능 / UI 화면 추가
 
@@ -38,3 +32,11 @@ chore: 설정, 빌드, 패키지
 ``const=ID_CARD``
 
 ``let=selectOption``
+
+---
+---
+
+# - 과제 수행 과정 기록
+# - 테스트 코드 작성
+# - 과제 코드 리뷰
+# - 회고 (깨달은 점, 아쉬운 점 등)
