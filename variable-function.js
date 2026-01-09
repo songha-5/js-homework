@@ -81,3 +81,41 @@ function welcomeMessage(name, isVip) {
 // welcomeMessage 테스트
 console.log(welcomeMessage('김가가', true))
 console.log(welcomeMessage('김나나', false))
+
+
+
+
+// 2. 배송비 계산
+// 주문 금액과 배송 지역을 입력받아 배송비를 계산하는 함수를 작성합니다.
+
+// TODO : 일단 다른 코드 진행 후 처리할 수 있으면 처리
+// 주문 금액이 0원 이하인 경우 : 0 반환
+// 배송지역이 빈 문자열인 경우 : 기본 배송비 적용
+// 빈값 ''이랑 //NaN나옴
+// -1 0 값 처리도 해야함
+
+
+const deliveryCalculate = function (orderAmount, area) {
+  // 배송비 3천원 함수
+  const addDeliveryFee = parseInt('3000', 10)
+  // 제주/도서 배열
+  const areaJeju = '제주'
+  const areaIsland = '도서'
+  const areaCompare = area === areaJeju || area === areaIsland
+
+  // 일반지역 배송
+  const nomalArea = addDeliveryFee + parseInt(orderAmount)
+  // 제주/도서지역 배송
+  const uniqueArea = areaCompare && nomalArea + addDeliveryFee || nomalArea
+  // 5만원 이상 무료 배송
+  const freeDeliveryFee = uniqueArea - addDeliveryFee
+  // 5만원보다 주문금액이 크면 무료배송 아니면 제주/도서지역 배송금액이거나 일반지역 배송금액
+  const result = orderAmount >= 50_000 && orderAmount || uniqueArea
+  
+  return result
+}
+
+console.log(deliveryCalculate('0', '제주'))
+console.log(deliveryCalculate('3000', '도서'))
+console.log(deliveryCalculate('5000', '대구'))
+console.log(deliveryCalculate('50000', '도서'))
