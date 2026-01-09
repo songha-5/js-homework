@@ -47,3 +47,5 @@ let userRatingScore = '85.5'
 console.log(userRatingScore)
 
 // 12. "알림 수신 동의 여부"를 담는 변수를 선언하고 불리언 타입 값을 설정하세요.
+const notiAgreeStatus = true
+console.log(notiAgreeStatus)
