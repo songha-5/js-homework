@@ -35,8 +35,8 @@ let deliveryStatus = '준비중'
 console.log(deliveryStatus)
 
 // 9. "쿠폰 사용 가능 여부"를 담는 변수를 선언하고 불리언 타입 값을 설정하세요.
-const COUPON_AVAILABILITY = true
-console.log(COUPON_AVAILABILITY)
+const couponAvailability = true
+console.log(couponAvailability)
 
 // 10. "최대 업로드 파일 크기(예: 10MB를 바이트 단위로 10485760)"를 담는 상수를 작성하세요.
 // 11. "사용자 등급 점수(예: 85.5점)"를 담는 변수를 선언하고 소수점이 포함된 값을 할당하세요.
