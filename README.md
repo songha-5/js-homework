@@ -29,12 +29,12 @@ chore: 설정, 빌드, 패키지
 
 
 # 네이밍 규칙
-- const: 대문자
+- const: 대문자, 문자_사이는_언더스코어_추가
 - let: camelCase
 - var: 사용지양
 
 ## 네이밍 예시
 
-``const=ID``
+``const=ID_CARD``
 
 ``let=selectOption``
