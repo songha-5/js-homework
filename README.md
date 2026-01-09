@@ -1,3 +1,8 @@
+# 폴더 구조
+- week-number로 구성 ``week-1``
+- "RETROSPECT.md"회고 파일 ``RETROSPECT.md``
+- 과제 명칭에 맞는 js 파일 생성 ``variable-function.js``
+
 
 # 커밋 컨밴션
 feat: 새로운 기능 / UI 화면 추가
@@ -12,7 +17,6 @@ fix: 버그 수정
 
 a11y: 웹 접근성 개선
 
----
 
 ## 커밋 메세지 예시
 
@@ -22,7 +26,6 @@ a11y: 웹 접근성 개선
 
 ``docs: README.md에 커밋 컨벤션 항목 추가``
 
----
 
 # 네이밍 규칙
 - const: 대문자
