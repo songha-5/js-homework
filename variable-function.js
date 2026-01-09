@@ -19,7 +19,13 @@ let productInventoryQuantity = parseInt('47개', 10) + '개'
 console.log(productInventoryQuantity)
 
 // 5. "회원 포인트(예: 15,800점)"를 담는 변수를 작성하세요.
+let memberPoint = '15,800점'
+console.log(memberPoint)
+
 // 6. API 서버의 "기본 URL(예: https://api.example.com)을 담는 상수를 작성하고 값을 할당하세요.
+const API_SERVER = "https://api.example.com"
+console.log(API_SERVER)
+
 // 7. 게시글의 "조회수(예: 1,234)"를 담는 변수를 선언하고 값을 할당하세요.
 // 8. "배송 상태('준비중', '배송중', '배송완료' 중 하나)"를 담는 변수를 작성해보세요.
 // 9. "쿠폰 사용 가능 여부"를 담는 변수를 선언하고 불리언 타입 값을 설정하세요.
