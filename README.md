@@ -48,3 +48,6 @@ chore: 설정, 빌드, 패키지
 # - 과제 코드 리뷰
 
 # - 회고 (깨달은 점, 아쉬운 점 등)
+
+# 노트정리
+https://www.notion.so/3-2df953634c9d80228cc2df7749a19f89?source=copy_link
