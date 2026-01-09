@@ -43,4 +43,7 @@ const TEN_MB = '10MB를 바이트 단위로 10485760'
 console.log(TEN_MB)
 
 // 11. "사용자 등급 점수(예: 85.5점)"를 담는 변수를 선언하고 소수점이 포함된 값을 할당하세요.
+let userRatingScore = '85.5'
+console.log(userRatingScore)
+
 // 12. "알림 수신 동의 여부"를 담는 변수를 선언하고 불리언 타입 값을 설정하세요.
