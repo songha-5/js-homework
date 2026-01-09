@@ -15,6 +15,9 @@ const EMAIL_VERIFICATION_BOOLEAN = Boolean(true)
 console.log(EMAIL_VERIFICATION_BOOLEAN)
 
 // 4. "상품 재고 수량(예: 47개)"을 담는 변수를 선언하고 숫자 값을 할당하세요.
+let productInventoryQuantity = parseInt('47개') + '개'
+console.log(productInventoryQuantity)
+
 // 5. "회원 포인트(예: 15,800점)"를 담는 변수를 작성하세요.
 // 6. API 서버의 "기본 URL(예: https://api.example.com)을 담는 상수를 작성하고 값을 할당하세요.
 // 7. 게시글의 "조회수(예: 1,234)"를 담는 변수를 선언하고 값을 할당하세요.
