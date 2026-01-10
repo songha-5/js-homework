@@ -172,12 +172,14 @@ const movieTicket = function (movieType, people, discount) {
     '3D 영화' : 17000,
     'IMAX 영화': 20000,
   }
+  // 할인금액 적용 (변동사항있을 시 해당 금액 변경)
+  const rate = 0.2
   // 영화 타입과 사람수에 따라 가격 계산
   const totaltotalTicket = type[movieType] * people
   // 조조할인(10시 이전인지) 확인
   const discountTime = 10 >= discount
   // 조조할인 계산식 - 전체금액에서 20% 할인
-  const discounttotalTicket = totaltotalTicket - (totaltotalTicket * 0.2)
+  const discounttotalTicket = totaltotalTicket - (totaltotalTicket * rate)
   // 결과 : 조조할인에 해당하면 적용 / 아니면 기본값 적용
   const discountCalculate = discountTime && discounttotalTicket || totaltotalTicket
   return discountCalculate
