@@ -106,9 +106,9 @@ const deliveryCalculate = function (orderAmount, area) {
   // 제주/도서지역 배송
   const uniqueArea = areaCompare && nomalArea + addDeliveryFee || nomalArea
   // 5만원보다 주문금액이 크면 무료배송 아니면 제주/도서지역 배송금액이거나 일반지역 배송금액
-  const result = orderAmount >= 50_000 && orderAmount || uniqueArea
+  const result = orderAmount >= 50000 && parseInt(orderAmount) || uniqueArea
   
-  return result + '원'
+  return result
 }
 
 // deliveryCalculate 테스트
