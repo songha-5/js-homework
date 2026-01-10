@@ -128,3 +128,33 @@ const passwordValid = password => (password >= 8) && (password <= 20)
 console.log(passwordValid(7))
 console.log(passwordValid(20))
 console.log(passwordValid(21))
+
+
+
+// 4. 포인트 적립 계산
+// 결제 금액과 회원 등급을 입력받아 적립될 포인트를 계산하는 함수를 작성합니다.
+// 포인트 적립률
+// VIP : 결제 금액의 5%
+// GOLD : 결제 금액의 3%
+// SILVER : 결제 금액의 1%
+// 일반 : 결제 금액의 0.5%
+
+function pointsCalculate (price, membership) {
+  // 회원 등급 구분
+  const userRating = {
+    'vip' : parseFloat(0.05),
+    'gold' : parseFloat(0.03),
+    'silver' : parseFloat(0.01),
+    '노말' : parseFloat(0.005)
+  }
+  // 맴버쉽 호출하면 membership에 따라 포인트 계산
+  const calculate = userRating[membership] * price
+  // 값 정수 전환
+  const result = parseInt(calculate, 10)
+
+  return  result
+}
+console.log(pointsCalculate(10002, 'vip'))
+console.log(pointsCalculate(10002, 'gold'))
+console.log(pointsCalculate(10002, 'silver'))
+console.log(pointsCalculate(10002, '노말'))
