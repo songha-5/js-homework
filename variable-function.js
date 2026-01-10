@@ -87,41 +87,43 @@ console.log(welcomeMessage('김나나', false))
 
 // 2. 배송비 계산
 // 주문 금액과 배송 지역을 입력받아 배송비를 계산하는 함수를 작성합니다.
+const deliveryCalculate = function (deliveryFee, area) {
+  // 문자열을 정수로 변환 (중복작업 방지)
+  const price = parseInt(deliveryFee, 10)
+  // 배송료, 기본 배송비, 추가 배송비 추가
+  const basicCost = 3_000
+  const addCost = 3_000
+  const squareCost = basicCost + addCost
+  // 제주/도서 지역 목록
+  const isJeju = '제주'
+  const isIsland = '도서'
 
-// TODO : 일단 다른 코드 진행 후 처리할 수 있으면 처리
-// 주문 금액이 0원 이하인 경우 : 0 반환
-//  -1 값도 처리가능한 경우 처리
-// 배송지역이 빈 문자열인 경우 : 기본 배송비 적용 // NaN값이 나옴
+  // 배송료 계산식 (원금 + 배송비)
+  const addDeliveryFee = (deliveryFee) => price + deliveryFee
 
-const deliveryCalculate = function (orderAmount, area) {
-  // 배송비 3천원 함수
-  const addDeliveryFee = parseInt('3000', 10)
-  // 제주/도서 배열
-  const areaJeju = '제주'
-  const areaIsland = '도서'
-  const areaCompare = area === areaJeju || area === areaIsland
+  // 주문금액이 5만원 이상이면 무료배송(원금반환)
+  const freeDelivery = price >= 50_000 && price  
+  // 제주/도서 지역이면 3_000 추가
+  const areaCheck = (isIsland === area || isJeju === area) && addDeliveryFee(squareCost)
+  // 기본 배송비 계산식 (원금에 3_000 추가)
+  const basicDelivery = price + basicCost
+  // 주문 금액이 5만원 이상이면 무료배송 하거나 제주/도서 지역일시 배송료 추가 아니면 기본 배송비
+  const totalPrice = freeDelivery || areaCheck || basicDelivery
+  // 결과값이 0보다 작으면 0을 출력해라
+  const result = price > 0 && totalPrice || 0
 
-  // 일반지역 배송
-  const nomalArea = addDeliveryFee + parseInt(orderAmount)
-  // 제주/도서지역 배송
-  const uniqueArea = areaCompare && nomalArea + addDeliveryFee || nomalArea
-  // 5만원보다 주문금액이 크면 무료배송 아니면 제주/도서지역 배송금액이거나 일반지역 배송금액
-  const result = orderAmount >= 50000 && parseInt(orderAmount) || uniqueArea
-  
   return result
 }
-
-// deliveryCalculate 테스트
-console.log(deliveryCalculate('0', '제주'))
+console.log(deliveryCalculate('-1', '제주'))
+console.log(deliveryCalculate('', '제주'))
+console.log(deliveryCalculate('0', ''))
 console.log(deliveryCalculate('3000', '도서'))
-console.log(deliveryCalculate('5000', '대구'))
-console.log(deliveryCalculate('50000', '도서'))
+console.log(deliveryCalculate('50000', '부산'))
 
 
 
 // 3. 비밀번호 유효성 검사
 // 비밀번호 문자열을 입력받아 유효성 검사를 수행하는 함수를 작성합니다.
-
 // 비밀번호 유효성 검사, password를 매개변수로 받음
 const passwordValid = password => (password >= 8) && (password <= 20)
 
