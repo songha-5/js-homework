@@ -105,12 +105,10 @@ const deliveryCalculate = function (orderAmount, area) {
   const nomalArea = addDeliveryFee + parseInt(orderAmount)
   // 제주/도서지역 배송
   const uniqueArea = areaCompare && nomalArea + addDeliveryFee || nomalArea
-  // 5만원 이상 무료 배송
-  const freeDeliveryFee = uniqueArea - addDeliveryFee
   // 5만원보다 주문금액이 크면 무료배송 아니면 제주/도서지역 배송금액이거나 일반지역 배송금액
   const result = orderAmount >= 50_000 && orderAmount || uniqueArea
   
-  return result
+  return result + '원'
 }
 
 // deliveryCalculate 테스트
@@ -118,3 +116,15 @@ console.log(deliveryCalculate('0', '제주'))
 console.log(deliveryCalculate('3000', '도서'))
 console.log(deliveryCalculate('5000', '대구'))
 console.log(deliveryCalculate('50000', '도서'))
+
+
+
+// 3. 비밀번호 유효성 검사
+// 비밀번호 문자열을 입력받아 유효성 검사를 수행하는 함수를 작성합니다.
+
+// 비밀번호 유효성 검사, password를 매개변수로 받음
+const passwordValid = password => (password >= 8) && (password <= 20)
+
+console.log(passwordValid(7))
+console.log(passwordValid(20))
+console.log(passwordValid(21))
