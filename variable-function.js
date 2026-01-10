@@ -142,10 +142,10 @@ console.log(passwordValid(21))
 function pointsCalculate (price, membership) {
   // 회원 등급 구분
   const userRating = {
-    'vip' : parseFloat(0.05),
-    'gold' : parseFloat(0.03),
-    'silver' : parseFloat(0.01),
-    '노말' : parseFloat(0.005)
+    'vip' : 0.05,
+    'gold' : 0.03,
+    'silver' : 0.01,
+    '노말' : 0.005
   }
   // 맴버쉽 호출하면 membership에 따라 포인트 계산
   const calculate = userRating[membership] * price
