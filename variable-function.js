@@ -152,7 +152,7 @@ function pointsCalculate (price, membership) {
   // 값 정수 전환
   const result = parseInt(calculate, 10)
 
-  return  result + ' point'
+  return  result
 }
 console.log(pointsCalculate(10002, 'vip'))
 console.log(pointsCalculate(10002, 'gold'))
