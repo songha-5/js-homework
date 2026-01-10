@@ -158,3 +158,31 @@ console.log(pointsCalculate(10002, 'vip'))
 console.log(pointsCalculate(10002, 'gold'))
 console.log(pointsCalculate(10002, 'silver'))
 console.log(pointsCalculate(10002, '노말'))
+
+
+
+// 5. 영화 티켓 가격 계산
+// 영화 정보와 관람 인원을 입력받아 총 결제 금액을 계산하는 함수를 작성합니다.
+const movieTicket = function (movieType, people, discount) {
+  // 영화 리스트 가격표 추가 - 새 영화 타입이 추가되면, 추가
+  const type =  {
+    '일반 영화': 14000,
+    '3D 영화' : 17000,
+    'IMAX 영화': 20000,
+  }
+  // 영화 타입과 사람수에 따라 가격 계산
+  const totaltotalTicket = type[movieType] * people
+  // 조조할인(10시 이전인지) 확인
+  const discountTime = 10 >= discount
+  // 조조할인 계산식 - 전체금액에서 20% 할인
+  const discounttotalTicket = totaltotalTicket - (totaltotalTicket * 0.2)
+  // 결과 : 조조할인에 해당하면 적용 / 아니면 기본값 적용
+  const discountCalculate = discountTime && discounttotalTicket || totaltotalTicket
+  return discountCalculate
+}
+
+
+
+console.log(movieTicket('IMAX 영화', 2, 10))
+console.log(movieTicket('3D 영화', 2, 10))
+console.log(movieTicket('일반 영화', 2, 10))
