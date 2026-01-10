@@ -180,9 +180,6 @@ const movieTicket = function (movieType, people, discount) {
   const discountCalculate = discountTime && discounttotalTicket || totaltotalTicket
   return discountCalculate
 }
-
-
-
 console.log(movieTicket('IMAX 영화', 2, 10))
 console.log(movieTicket('3D 영화', 2, 10))
 console.log(movieTicket('일반 영화', 2, 10))
