@@ -90,10 +90,8 @@ console.log(welcomeMessage('김나나', false))
 
 // TODO : 일단 다른 코드 진행 후 처리할 수 있으면 처리
 // 주문 금액이 0원 이하인 경우 : 0 반환
-// 배송지역이 빈 문자열인 경우 : 기본 배송비 적용
-// 빈값 ''이랑 //NaN나옴
-// -1 0 값 처리도 해야함
-
+//  -1 값도 처리가능한 경우 처리
+// 배송지역이 빈 문자열인 경우 : 기본 배송비 적용 // NaN값이 나옴
 
 const deliveryCalculate = function (orderAmount, area) {
   // 배송비 3천원 함수
@@ -115,6 +113,7 @@ const deliveryCalculate = function (orderAmount, area) {
   return result
 }
 
+// deliveryCalculate 테스트
 console.log(deliveryCalculate('0', '제주'))
 console.log(deliveryCalculate('3000', '도서'))
 console.log(deliveryCalculate('5000', '대구'))

@@ -51,6 +51,13 @@ chore: 설정, 빌드, 패키지
   - console.log(welcomeMessage('김가가', true))
   - console.log(welcomeMessage('김나나', false))
 
+- deliveryCalculate()
+
+  - console.log(deliveryCalculate('0', '제주'))
+  - console.log(deliveryCalculate('3000', '도서'))
+  - console.log(deliveryCalculate('5000', '대구'))
+  - console.log(deliveryCalculate('50000', '도서'))
+
 # - 과제 코드 리뷰
 - welcomeMessage 함수
 
