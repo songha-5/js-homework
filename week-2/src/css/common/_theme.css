@@ -1,0 +1,9 @@
+:root {
+  --black: #000;
+  --same-black: #333;
+  --sub-black: rgba(0, 0, 0, 0.478);
+
+  --gray: #f5f5f5;
+  --hover-gray: rgba(0, 0, 0, 0.078);
+  --focus: #2049DF;
+}
