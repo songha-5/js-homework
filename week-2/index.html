@@ -8,5 +8,50 @@
   <title>Carousel</title>
 </head>
 <body>
+  <main>
+    <article class="container">
+      <!-- 추천게임 버튼 영역 -->
+      <button type="button" class="title-area" aria-label="추천 게임 더보기">
+        <img src="/src/images/icon_gamesvg.svg" alt="" />
+        <span>추천 게임</span>
+        <img src="/src/images/icon_game_arrow.svg" alt="" />
+      </button>
+
+      <!-- 카드 영역 -->
+      <section class="cards-wrap">
+        <div class="card-item">
+          <div class="card-graphic">
+            <img src="/src/images/game_character_1.png" alt="크로노 오디세이 게임 캐릭터" />
+          </div>
+          <ul class="card-info">
+            <li data-info="title">크로노 오디세이</li>
+            <li data-info="subScript">멈춰 있던 시간이 흐른다</li>
+            <li data-info="genre">MMORPG</li>
+          </ul>
+        </div>
+        <div class="card-item">
+          <div class="card-graphic">
+            <img src="/src/images/game_character_2.png" alt="아키에이지 워 게임 캐릭터" />
+          </div>
+          <ul class="card-info">
+            <li data-info="title">아키에이지 워</li>
+            <li data-info="subScript">시대의 전설을 향해</li>
+            <li data-info="genre">MMORPG</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 네비게이션 영역 -->
+      <nav class="navigation">
+        <button type="button">페이지 이전으로 이동</button>
+        <div class="page-state">
+          <span aria-label="총 페이지" data-page="total">3</span>
+          <span aria-hidden="true">/</span>
+          <span aria-hidden="중 현재" data-page="now">1</span>
+        </div>
+        <button type="button">페이지 이후로 이동</button>
+      </nav>
+    </article>
+  </main>
 </body>
 </html>
