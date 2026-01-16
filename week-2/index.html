@@ -47,13 +47,17 @@
 
       <!-- 네비게이션 영역 -->
       <nav class="navigation">
-        <button type="button">페이지 이전으로 이동</button>
+        <button class="icon-naiv navi-prev" type="button">
+          <img src="/src/images/icon_button_arrow.svg" alt="페이지 이전으로 이동" />
+        </button>
         <div class="page-state">
-          <span aria-label="총 페이지" data-page="total">3</span>
-          <span aria-hidden="true">/</span>
-          <span aria-hidden="중 현재" data-page="now">1</span>
+          <span class="page-state-total" aria-label="총 페이지" data-page="total">3</span>
+          <span class="page-state-slash" aria-hidden="true">/</span>
+          <span class="page-state-now" aria-hidden="중 현재" data-page="now">1</span>
         </div>
-        <button type="button">페이지 이후로 이동</button>
+        <button class="icon-naiv navi-next" type="button">
+          <img src="/src/images/icon_button_arrow.svg" alt="페이지 이후로 이동" />
+        </button>
       </nav>
     </article>
   </main>

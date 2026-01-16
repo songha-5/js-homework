@@ -22,3 +22,53 @@
     outline: var(--focus) solid 1px;
   }
 }
+
+/* 네비게이션 버튼 */
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block-start: 11px;
+  margin-block-end: 1px;
+  gap: 12px;
+
+  .icon-naiv {
+    border: 1px solid var(--hover-gray);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    img {
+      width: 8px;
+      height: 14px;
+    }
+
+    &:hover {
+      background-color: var(--gray);
+    }
+
+    &:focus {
+      outline: 1px solid var(--focus);
+    }
+  }
+  .navi-prev {
+    transform: rotate(180deg)
+  }
+
+  .page-state {
+    display: flex;
+    gap: 3px;
+    color: var(--number-black);
+
+    .page-state-total {
+      order: 3;
+    }
+    .page-state-slash {
+      order: 2;
+    }
+    .page-state-now {
+      order: 1;
+      color: var(--black);
+    }
+  }
+}
