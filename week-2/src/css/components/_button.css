@@ -1,0 +1,23 @@
+/* 추천게임 버튼 */
+.button-suggestion {
+  display: flex;
+  align-items: center;
+  padding-block-start: 5.5px;
+  padding-block-end: 6.5px;
+  padding-inline: 10.5px;
+  border-radius: 100px;
+  border: none;
+  gap: 6px;
+
+  .title-suggestion {
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+
+  &:hover {
+    background-color: var(--gray);
+  }
+  &:focus {
+    outline: var(--focus) solid 1px;
+  }
+}
