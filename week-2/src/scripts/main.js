@@ -67,32 +67,45 @@ const gamesList = {
   }
 }
 
-// ALT 설명 문구 - 카드 영역
+
+// 변수 이름 축약을 위한 함수
+const getElement = (selector, context = document) => {
+  return context.querySelector(selector);
+}
+
+// 카드 영역: class/data 설정 문구
 const characterAlt = ' 게임 캐릭터'
 const backgroundAlt = ' 게임 캐릭터 배경'
+const firstCardText = '.card-item:first-child'
+const lastCardText = '.card-item:last-child'
+const cardCharacter = '.card-character'
+const backgroundCharacter = '[aria-label*="게임 캐릭터 배경"]'
+const infoTitle = '[data-info="title"]'
+const infoSubScript = '[data-info="subScript"]'
+const infoGenre = '[data-info="genre"]'
 
-// 정리...해야겠는데 이거 정리....한번한다고해도되나/? 다른방법이 있을거같은데
-const cardWrap = document.querySelector('.cards-wrap')
-const firstCard = cardWrap.querySelector('.card-item:first-child')
-const firstCardCharacter = firstCard.querySelector('.card-character')
-const firstCardBackground = firstCard.querySelector('[aria-label*="게임 캐릭터 배경"]')
-const firstInfoTitle = firstCard.querySelector('[data-info="title"]')
-const firstInfoSubScript = firstCard.querySelector('[data-info="subScript"]')
-const firstInfoGenre = firstCard.querySelector('[data-info="genre"]')
+// 카드 영역: 첫번째 카드 선택
+const cardWrap = getElement('.cards-wrap')
+const firstCard = getElement(firstCardText, cardWrap)
+const firstCardCharacter = getElement(cardCharacter, firstCard)
+const firstCardBackground = getElement(backgroundCharacter, firstCard)
+const firstInfoTitle = getElement(infoTitle, firstCard)
+const firstInfoSubScript = getElement(infoSubScript, firstCard)
+const firstInfoGenre = getElement(infoGenre, firstCard)
 
-const secondCard = cardWrap.querySelector('.card-item:last-child')
-const secondCardCharacter = secondCard.querySelector('.card-character')
-const secondCardBackground = secondCard.querySelector('[aria-label*="게임 캐릭터 배경"]')
-const secondInfoTitle = secondCard.querySelector('[data-info="title"]')
-const secondInfoSubScript = secondCard.querySelector('[data-info="subScript"]')
-const secondInfoGenre = secondCard.querySelector('[data-info="genre"]')
+// 카드 영역: 두번째 카드 선택
+const secondCard = getElement(lastCardText, cardWrap)
+const secondCardCharacter = getElement(cardCharacter, secondCard)
+const secondCardBackground = getElement(backgroundCharacter, secondCard)
+const secondInfoTitle = getElement(infoTitle, secondCard)
+const secondInfoSubScript = getElement(infoSubScript, secondCard)
+const secondInfoGenre = getElement(infoGenre, secondCard)
 
-const navigationArea = document.querySelector('.navigation')
-const totalStateNow = navigationArea.querySelector('[data-page="now"]')
-
-const navigationList = document.querySelector('.navigation')
-const navigationNext = navigationList.querySelector('.navi-next')
-const navigationPrev = navigationList.querySelector('.navi-prev')
+// 네비게이션 선택
+const navigationArea = getElement('.navigation')
+const totalStateNow = getElement('[data-page="now"]', navigationArea)
+const navigationNext = getElement('.navi-next', navigationArea)
+const navigationPrev = getElement('.navi-prev', navigationArea)
 
 // 전체 페이지 - 오브젝트 총 개수 / 페이지의 개수
 const totalPageArray = Object.keys(gamesList)
@@ -100,6 +113,8 @@ const totalPage = totalPageArray.length / 2
 
 // 숫자 카운터
 let currentPageNumber = 1
+
+
 
 // if문 너무 하드코딩임 수정 할 필요 있음
 function checkPage (currentPage) {
