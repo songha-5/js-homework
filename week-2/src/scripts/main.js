@@ -160,23 +160,6 @@ function gameInfoAdd (currentPage, games) {
     console.log ( ' 에[ㅇ?')
   }
 }
-gameInfoAdd(1, gamesList)
-
-
-// if문 너무 하드코딩임 수정 할 필요 있음
-function checkPage (currentPage) {
-  if (currentPage === 1) {
-    console.log('1~2페이지임?')
-  } 
-  else if (currentPage === 2) {
-    console.log('3~4페이지임?')
-  }
-  else if (currentPage === 3) {
-    console.log('5~6페이지임?')
-  } else {
-    console.log('다른 페이지임')
-  }
-}
 
 // 전체 페이지 - 오브젝트 총 개수 / 페이지의 개수
 const totalPageArray = Object.keys(gamesList)
@@ -188,7 +171,6 @@ navigationNext.addEventListener('click', () => {
   if (currentPageNumber >= totalPage + 1) {
     currentPageNumber === (currentPageNumber = 1)
   }
-  // checkPage(currentPageNumber)
   gameInfoAdd(currentPageNumber, gamesList)
 })
 navigationPrev.addEventListener('click', () => {
@@ -196,6 +178,5 @@ navigationPrev.addEventListener('click', () => {
   if (currentPageNumber <= 0) {
     currentPageNumber === (currentPageNumber = totalPage)
   }
-  // checkPage(currentPageNumber)
   gameInfoAdd(currentPageNumber, gamesList)
 })
