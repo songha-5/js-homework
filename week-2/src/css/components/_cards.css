@@ -6,6 +6,7 @@
 
   /* 카드 그래픽 */
   .card-item {
+    min-width: 0;
 
     .card-graphic {
       position: relative;
@@ -48,6 +49,9 @@
       margin-block-start: 8px;
       line-height: 1.2;
       letter-spacing: -0.02em;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     .card-info-subScript {
       font-size: 0.875rem;
@@ -55,6 +59,9 @@
       margin-block-start: 2px;
       line-height: 1.2;
       letter-spacing: -0.02em;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     .card-info-genre {
       font-size: 0.875rem;
