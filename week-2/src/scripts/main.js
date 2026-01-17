@@ -103,9 +103,10 @@ let currentPageNumber = 1
 // 타겟 아이디가 ++ --가 되어야하는데.. 어떻게 그 기준을 잡지? 
 // 
 function gameInfoAdd (currentPage, games) {
-  const gameFind = Object.values(games).find(game => game)
+  const gameFind = Object.values(games).find(game => game.id === currentPage)
   const gameId = gameFind.id
   
+  console.log(gameFind + ' -------------------- gameFind')
   console.log(gameId , ' ------------------------ 아이디인가요?')
   console.log('--- 비교 디버깅 시작 ---');
   console.log('내 페이지:', currentPage, typeof currentPage); 
@@ -114,17 +115,8 @@ function gameInfoAdd (currentPage, games) {
   games['chronoOdyssey'][currentPage]
 
   
-  // 음........ 첫번째 배열의... 캐릭터나 타이틀 추가?
-  // 그러면 gameFind[currentPage].chracter이렇게 해줘야할지도
-  // 근데 이게 안된단말이지
-  // 2번이면 currentPage +1 +2가되어야하는데 id + 2를 할수가 없었음..
-  // 배열의 전체 길이에서 첫번째일때 == currentPage가 동일하고 gamefind첫번쨰 배열, 두번째 배열 불러오기
-  // 엥 이상한데 currentPage(1) 일때 .. 뭐랑 비교하는데? 아 이래서 꼬였구나
-  // 첫번쨰 if문이 이상함 currentPAge는 항상 바뀜 근데 gameId는 고정이잖아? 거기 +1할수도없지 그치 그건 객체니까..*
-  // 음 그럼 조건을 새로짜자
-  // 페이지가 1이면 1페이지 A 2페이지 B 3페이지 C 는 하드코딩 이건... 페이지가 늘어나면 곤란함
-  // 
-  // 배열의 전체에서 두번째일때 
+  // 음... 조건... id = currentPage가 일치하게는 했는데
+  // html의 이미지가 동시에 바뀜 
   if(currentPage === gameId) {
     // 첫번째 card html 추가
     firstCardCharacter.src = gameFind.character
@@ -145,8 +137,6 @@ function gameInfoAdd (currentPage, games) {
     secondInfoGenre.textContent = gameFind.genre
     // 페이지네비게이션에 현재 페이지 반영
     totalStateNow.textContent = currentPageNumber
-    gameFind.id + 2
-    console.log(gameId + '========================================== ')
   } else if (currentPage === 3) {
     // 첫번째 card html 추가
     firstCardCharacter.src = games['chronoOdyssey']['character']
