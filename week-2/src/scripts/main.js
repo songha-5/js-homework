@@ -4,36 +4,10 @@ console.log('HI')
 
 // ==============
 
-
-// - 음..오브젝로 넣어야할거같은데 텍스트,이미지,서브텍스트 죄다 넣고 관리
-// - 근데 이거 오브젝트에 넣고 관리해야하잖아, json으로 넣으는게 좋을듯
-// - 근데 난 지금 그렇게 못하니 패스 ( 데이터 받아오는 역할)
 // - 페이지랑 오브젝트랑 어떻게 연결하지?
 //   - 일단 id?
 // - 이거 객체의 개수에 맞게 자동으로 페이지 수 늘어나야 하는거아닌가?
-//   - 7 / 2 > 3.5 parseInt(number)=3 
-//   - 이거는 페이지 숫자만 표기할뿐, 위의 데이터는 어떻게 페이징해야할지  고민해야함
-//     - 이거 그냥 다음누르면 무조건 다음페이지 누르면 이전페이지 이렇게하면,, 연타누르면 꼬일거같지? 아닌가?
-//         - 연결 안되어 있는 경우 : 로직짜기 쉬울듯, 애니메이션 들어가면, 근데 지금은 안들어감 괜찮은듯?
-//         - id + 1, 2? if (nextPage) else (prevPage)
-//         - 잠깐 셋타임아웃이면 오류 안나잖아? 그럼 연결안되게 짜는게 낫지않음? 무조건 다음페이지 누르면 + id 하는게 낫쟈나?
-// - 그럼 페이지 3 > 1로 넘어가는건 어떻게 표현하면될지 고민
-//   - parseInt(number)가 오브젝트.length를 넘어가면 1
-//   - if( parseInt(number) > object.length ) { page = 1 }
-//   - page = 1을 어떻게 뿌리라 할껀데? 1~2번인데 그걸 어떻게? 1번뿌리라고하면 자연스럽게 1~2번뿌리는거아니잖아, 1,4이렇게 뿌릴수도있는거 아냐? 
-//     - 위의 내용 고민해보기
 //       - ( 맨위에 적어둠 id + 1, id ++ ) 근데 이게 맞는건지 고민
-//     - object에 id넣어야하면 되지 않을까? 음 굿
-
-// 2. 숫자 누르면 3>1로 이동 (?????)
-// - 
-// 3. 숫자 누르면 위의 이미지가 바뀜
-//   - []대괄호인거같긴해...
-//   - 객체의 수 / 2 ? 
-//   - 근데 length를 안알려줌 다른 방법이 있지 않을까?
-//   - 위에꺼 안될듯? currentNumber여야하는데 그걸 어떻게 찾음?
-//   - 
-// - 카드영역의 alt에 페이지 넘어갈때마다 이름을 넣어줄 수있나?
 
 
 //정리
@@ -97,28 +71,42 @@ const gamesList = {
   }
 }
 
-// 하는 기능 || 눌렀을 때 페이지 넘버가 넘어가는 기능
-// 받아야 하는 값 || 현제 페이지 / 전체 페이지
-// const로 추가해야하는 값  || let 현재페이지 / let 전체페이지
-// 현재페이지 : 아이디는 안됌, id에서 + 2(변수로 뺸것/어떰?)
-// 현재페이지 : 햐.. 문제가 생김 이거 값을 저장을 못함
-// 현재페이지 : 무조건 +2하면 1에서 +2된단 말이지
-// 현재페이지 : 무조건 +2하면 1에서 +2된단 말이지
-// 전체페이지 : 전체객체 / 2(이거도 변수로 빼자 추가될 수 있쟈나) 
 
-// 음! 다른거!
+const totalPageArray = Object.keys(gamesList)
+const totalPage = totalPageArray.length / 2
+const navigationList = document.querySelector('.navigation')
+const navigationNext = navigationList.querySelector('.navi-next')
+const navigationPrev = navigationList.querySelector('.navi-prev')
+
+console.log(Math.ceil(totalPage) + '토탈 페이지')
+
+// 숫자 카운터
+let currentPageNumber = 1
+
+// if문 너무 하드코딩임 수정 할 필요 있음
+function checkPage (currentPage) {
+  if (currentPage === 1) {
+    console.log('1~2페이지임?')
+  } 
+  else if (currentPage === 2) {
+    console.log('3~4페이지임?')
+  }
+  else if (currentPage === 3) {
+    console.log('5~6페이지임?')
+  } else {
+    console.log('다른 페이지임')
+  }
+}
 
 
 
-// id=1이면 card-item data-zoom="character"에 src변경
-// aria-label 크로노 오디세이 변경
-// card-info 변경
+// ALT 설명 문구 - 카드 영역
+const characterAlt = ' 게임 캐릭터'
+const backgroundAlt = ' 게임 캐릭터 배경'
 
-// id=2에 card-item 변경
+// HTML 선택자 - 카드 영역
 
-// id=3에 ..
 
-// 이걸 자동화
 
 // 받는값 object
 // 만들어야 하는 기능 : src, text add
@@ -127,12 +115,6 @@ const value = gamesList.key.value
 console.log(gamesList[key][value]) */
 // 오... 해당 페이지를 받아야 할거같은데 해당 페이지가 1일때 1-2를 뿌리고 2일때 3-4을 뿌리고
 
-
-// ALT 설명 문구 - 카드 영역
-const characterAlt = ' 게임 캐릭터'
-const backgroundAlt = ' 게임 캐릭터 배경'
-
-// HTML 선택자 - 카드 영역
 
 
 // 정리...해야겠는데 이거 정리....한번한다고해도되나/? 다른방법이 있을거같은데
@@ -151,10 +133,15 @@ const secondInfoTitle = secondCard.querySelector('[data-info="title"]')
 const secondInfoSubScript = secondCard.querySelector('[data-info="subScript"]')
 const secondInfoGenre = secondCard.querySelector('[data-info="genre"]')
 
+const navigationArea = document.querySelector('.navigation')
+const totalStateNow = navigationArea.querySelector('[data-page="now"]')
+
 // 카드 인포 추가 - 카드 영역
 function gameInfoAdd (games) {
   // 이거 HTML로 그려야하나? 고민 < 랜더할때 깜박거리면 그러지 않기
   // 이거.. 직접하드코딩말고 id불러올때 바로 넣을 수 있게 하기
+  // 1페이지 일때 +id 1. 2하면될거같은데  id값이 안불러와짐 ㅠ 정확하게는 앞의 key값에 따라 id값이 안불러와짐 key문제
+  // 
   if(1 === games['chronoOdyssey']['id']) {
     firstCardCharacter.src = games['odin']['character']
     firstCardCharacter.alt = games['odin']['title'] + characterAlt
@@ -172,44 +159,15 @@ function gameInfoAdd (games) {
     secondInfoTitle.textContent = games['archeAgeWar']['title']
     secondInfoSubScript.textContent = games['archeAgeWar']['subTitle']
     secondInfoGenre.textContent = games['archeAgeWar']['genre']
+
+    totalStateNow.textContent = currentPageNumber
   }
 }
 
 gameInfoAdd(gamesList)
 
-
-
-// 뭘 받아와야하지? 
-// 기능: 페이지를 눌렀을때 앞으로, 뒤로 가는 버튼
-// 총페이지, 현재페이지
-// 현재 페이지, 오브젝트, 
-// 현재페이지 index 번호 ( 누르면 ++ 2 하면될듯)
-//  총페이지, 
-const totalPageArray = Object.keys(gamesList)
-const totalPage = totalPageArray.length / 2
-const navigationList = document.querySelector('.navigation')
-const navigationNext = navigationList.querySelector('.navi-next')
-const navigationPrev = navigationList.querySelector('.navi-prev')
-
-console.log(Math.ceil(totalPage) + '토탈 페이지')
-
-// 숫자 카운터
-let currentPageNumber = 0
-
-function checkPage (currentPage) {
-  if (currentPage === 1) {
-    console.log('1~2페이지임?')
-  } 
-  else if (currentPage === 2) {
-    console.log('3~4페이지임?')
-  }
-  else if (currentPage === 3) {
-    console.log('5~6페이지임?')
-  } else {
-    console.log('다른 페이지임')
-  }
-}
-
+// 4/0 부분 너무 하드코딩임 수정 할 필요 있음
+// 1/3 부분 너무 하드코딩임 수정 할 필요 있음
 navigationNext.addEventListener('click', () => {
   currentPageNumber++
   if (currentPageNumber >= 4) {
@@ -217,6 +175,7 @@ navigationNext.addEventListener('click', () => {
   }
   console.log(currentPageNumber)
   checkPage(currentPageNumber)
+  gameInfoAdd(gamesList)
 })
 navigationPrev.addEventListener('click', () => {
   currentPageNumber--
@@ -225,4 +184,5 @@ navigationPrev.addEventListener('click', () => {
   }
   console.log(currentPageNumber)
   checkPage(currentPageNumber)
+  gameInfoAdd(gamesList)
 })
