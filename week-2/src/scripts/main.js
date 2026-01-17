@@ -195,13 +195,13 @@ console.log(Math.ceil(totalPage) + '토탈 페이지')
 
 function navigation (currentPage) {
   const currentId = gamesList.archeAgeWar.id
-  let currentPage = 0
+  let currentPageNumber = 0
   
   //  마우스 클릭을 하면 +currentPage가 +1 currentPage가 -1
   navigationNext.addEventListener('click', (currentPage) => {
-    currentPage++
-    console.log(currentPage)
-    console.log(currentPage + '   커렌트 페이지?')
+    currentPageNumber++
+    console.log(currentPageNumber)
+    console.log(currentPageNumber + '   커렌트 페이지?')
   })
   console.log(currentPage + '   커렌트 페이지?')
   
