@@ -98,13 +98,12 @@ function gameInfoAdd (currentPage, games) {
   const gameFind = Object.values(games).find(game => game.id === currentPage)
   const gameNext = Object.values(games).find(game => game.id === currentPage + 1)
   // 반환된 객체의 id값 저장
-  const gameId = gameFind.id
-  const gameNextId = gameNext.id
+  let gameId = gameFind.id
+  let gameNextId = gameNext.id
 
   console.log(gameNextId + '이거 뭐나와용?')
 
   console.log(gameFind + ' -------------------- gameFind')
-  console.log(gameId , ' ------------------------ 아이디인가요?')
   
   if(currentPage === gameId) {
     // 첫번째 card html 추가
@@ -129,11 +128,10 @@ function gameInfoAdd (currentPage, games) {
 
     // 어쉬; 이거만의 문제가 아님
     // 둘다 +2가 되어야함
-    // 음; 
-    gameId + 2
-    gameNextId + 2
-    console.log(gameId)
-    console.log(gameNextId)
+    gameId = gameId + 2
+    gameNextId = gameNextId + 2
+    console.log(gameId + ' ------------------------ 아이디인가요?')
+    console.log(gameNextId + ' ------------------------ 다음 아이디인가요?')
   }
 }
 
