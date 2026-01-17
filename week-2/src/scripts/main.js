@@ -193,34 +193,36 @@ const navigationPrev = navigationList.querySelector('.navi-prev')
 
 console.log(Math.ceil(totalPage) + '토탈 페이지')
 
-function navigation (currentPage) {
-  const currentId = gamesList.archeAgeWar.id
-  let currentPageNumber = 0
-  
-  //  마우스 클릭을 하면 +currentPage가 +1 currentPage가 -1
-  navigationNext.addEventListener('click', (currentPage) => {
-    currentPageNumber++
-    console.log(currentPageNumber)
-    console.log(currentPageNumber + '   커렌트 페이지?')
-  })
-  navigationPrev.addEventListener('click', (currentPage) => {
-    currentPageNumber--
-    console.log(currentPageNumber)
-    console.log(currentPageNumber + '   커렌트 페이지?')
-  })
-  
-  // 여기엔 마우스클릭이벤트
-  if (currentPage <= 2) {
+// 숫자 카운터
+let currentPageNumber = 0
+
+function checkPage (currentPage) {
+  if (currentPage === 1) {
     console.log('1~2페이지임?')
   } 
-  else if (currentPage <= 4) {
+  else if (currentPage === 2) {
     console.log('3~4페이지임?')
   }
-  else if (currentPage <= 6) {
+  else if (currentPage === 3) {
     console.log('5~6페이지임?')
   } else {
     console.log('다른 페이지임')
   }
 }
 
-navigation(4);
+navigationNext.addEventListener('click', () => {
+  currentPageNumber++
+  if (currentPageNumber >= 4) {
+    currentPageNumber === (currentPageNumber = 1)
+  }
+  console.log(currentPageNumber)
+  checkPage(currentPageNumber)
+})
+navigationPrev.addEventListener('click', () => {
+  currentPageNumber--
+  if (currentPageNumber <= 0) {
+    currentPageNumber === (currentPageNumber = 3)
+  }
+  console.log(currentPageNumber)
+  checkPage(currentPageNumber)
+})
