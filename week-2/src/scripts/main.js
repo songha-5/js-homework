@@ -203,7 +203,11 @@ function navigation (currentPage) {
     console.log(currentPageNumber)
     console.log(currentPageNumber + '   커렌트 페이지?')
   })
-  console.log(currentPage + '   커렌트 페이지?')
+  navigationPrev.addEventListener('click', (currentPage) => {
+    currentPageNumber--
+    console.log(currentPageNumber)
+    console.log(currentPageNumber + '   커렌트 페이지?')
+  })
   
   // 여기엔 마우스클릭이벤트
   if (currentPage <= 2) {
