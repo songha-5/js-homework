@@ -104,6 +104,7 @@ let currentPageNumber = 1
 // 
 function gameInfoAdd (currentPage, games) {
   const gameFind = Object.values(games).find(game => game.id === currentPage)
+  const gameNextId = Object.values(games).find(game => game.id === currentPage + 1)
   const gameId = gameFind.id
   
   console.log(gameFind + ' -------------------- gameFind')
@@ -112,11 +113,8 @@ function gameInfoAdd (currentPage, games) {
   console.log('내 페이지:', currentPage, typeof currentPage); 
   console.log('타겟 ID:', gameId, typeof gameId);
   console.log('일치 여부:', currentPage === gameId);
-  games['chronoOdyssey'][currentPage]
-
   
   // 음... 조건... id = currentPage가 일치하게는 했는데
-  // html의 이미지가 동시에 바뀜 
   if(currentPage === gameId) {
     // 첫번째 card html 추가
     firstCardCharacter.src = gameFind.character
@@ -128,36 +126,15 @@ function gameInfoAdd (currentPage, games) {
     firstInfoSubScript.textContent = gameFind.subTitle
     firstInfoGenre.textContent = gameFind.genre
     // 두번째 card html 추가
-    secondCardCharacter.src = gameFind.character
-    secondCardCharacter.alt = gameFind.title + characterAlt
-    secondCardBackground.style.backgroundImage = gameFind.background
-    secondCardBackground.ariaLabel = gameFind.title + backgroundAlt
-    secondInfoTitle.textContent = gameFind.title
-    secondInfoSubScript.textContent = gameFind.subTitle
-    secondInfoGenre.textContent = gameFind.genre
+    secondCardCharacter.src = gameNextId.character
+    secondCardCharacter.alt = gameNextId.title + characterAlt
+    secondCardBackground.style.backgroundImage = gameNextId.background
+    secondCardBackground.ariaLabel = gameNextId.title + backgroundAlt
+    secondInfoTitle.textContent = gameNextId.title
+    secondInfoSubScript.textContent = gameNextId.subTitle
+    secondInfoGenre.textContent = gameNextId.genre
     // 페이지네비게이션에 현재 페이지 반영
     totalStateNow.textContent = currentPageNumber
-  } else if (currentPage === 3) {
-    // 첫번째 card html 추가
-    firstCardCharacter.src = games['chronoOdyssey']['character']
-    firstCardCharacter.alt = games['chronoOdyssey']['title'] + characterAlt
-    firstCardBackground.style.backgroundImage = games['chronoOdyssey']['background']
-    firstCardBackground.alt = games['chronoOdyssey']['title'] + backgroundAlt
-    firstInfoTitle.textContent = games['chronoOdyssey']['title']
-    firstInfoSubScript.textContent = games['chronoOdyssey']['subTitle']
-    firstInfoGenre.textContent = games['chronoOdyssey']['genre']
-    // 두번째 card html 추가
-    secondCardCharacter.src = games['POE2']['character']
-    secondCardCharacter.alt = games['POE2']['title'] + characterAlt
-    secondCardBackground.style.backgroundImage = games['POE2']['background']
-    secondCardBackground.alt = games['POE2']['title'] + backgroundAlt
-    secondInfoTitle.textContent = games['POE2']['title']
-    secondInfoSubScript.textContent = games['POE2']['subTitle']
-    secondInfoGenre.textContent = games['POE2']['genre']
-    // 페이지네비게이션에 현재 페이지 반영
-    totalStateNow.textContent = currentPageNumber
-  } else {
-    console.log ( ' 에[ㅇ?')
   }
 }
 
