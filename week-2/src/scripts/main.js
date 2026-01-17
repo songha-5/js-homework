@@ -89,32 +89,23 @@ const totalStateNow = getElement('[data-page="now"]', navigationArea)
 const navigationNext = getElement('.navi-next', navigationArea)
 const navigationPrev = getElement('.navi-prev', navigationArea)
 
-// 받는값 object
-/* onst key = gamesList.key
-const value = gamesList.key.value
-console.log(gamesList[key][value]) */
-// 오... 해당 페이지를 받아야 할거같은데 해당 페이지가 1일때 1-2를 뿌리고 2일때 3-4을 뿌리고
-
-
-// 숫자 카운터
+// 현재페이지 카운터
 let currentPageNumber = 1
 
-// 카드 인포 추가 - 카드 영역
-// 타겟 아이디가 ++ --가 되어야하는데.. 어떻게 그 기준을 잡지? 
-// 
+// 페이지 네비게이션에 따라 HTML구조 변경
 function gameInfoAdd (currentPage, games) {
+  // 객체값이 객체의 id값과 현재페이지가 동일하면 반환 / +1 되면 반환
   const gameFind = Object.values(games).find(game => game.id === currentPage)
-  const gameNextId = Object.values(games).find(game => game.id === currentPage + 1)
+  const gameNext = Object.values(games).find(game => game.id === currentPage + 1)
+  // 반환된 객체의 id값 저장
   const gameId = gameFind.id
-  
+  const gameNextId = gameNext.id
+
+  console.log(gameNextId + '이거 뭐나와용?')
+
   console.log(gameFind + ' -------------------- gameFind')
   console.log(gameId , ' ------------------------ 아이디인가요?')
-  console.log('--- 비교 디버깅 시작 ---');
-  console.log('내 페이지:', currentPage, typeof currentPage); 
-  console.log('타겟 ID:', gameId, typeof gameId);
-  console.log('일치 여부:', currentPage === gameId);
   
-  // 음... 조건... id = currentPage가 일치하게는 했는데
   if(currentPage === gameId) {
     // 첫번째 card html 추가
     firstCardCharacter.src = gameFind.character
@@ -126,15 +117,23 @@ function gameInfoAdd (currentPage, games) {
     firstInfoSubScript.textContent = gameFind.subTitle
     firstInfoGenre.textContent = gameFind.genre
     // 두번째 card html 추가
-    secondCardCharacter.src = gameNextId.character
-    secondCardCharacter.alt = gameNextId.title + characterAlt
-    secondCardBackground.style.backgroundImage = gameNextId.background
-    secondCardBackground.ariaLabel = gameNextId.title + backgroundAlt
-    secondInfoTitle.textContent = gameNextId.title
-    secondInfoSubScript.textContent = gameNextId.subTitle
-    secondInfoGenre.textContent = gameNextId.genre
+    secondCardCharacter.src = gameNext.character
+    secondCardCharacter.alt = gameNext.title + characterAlt
+    secondCardBackground.style.backgroundImage = gameNext.background
+    secondCardBackground.ariaLabel = gameNext.title + backgroundAlt
+    secondInfoTitle.textContent = gameNext.title
+    secondInfoSubScript.textContent = gameNext.subTitle
+    secondInfoGenre.textContent = gameNext.genre
     // 페이지네비게이션에 현재 페이지 반영
     totalStateNow.textContent = currentPageNumber
+
+    // 어쉬; 이거만의 문제가 아님
+    // 둘다 +2가 되어야함
+    // 음; 
+    gameId + 2
+    gameNextId + 2
+    console.log(gameId)
+    console.log(gameNextId)
   }
 }
 
