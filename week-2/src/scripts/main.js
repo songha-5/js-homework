@@ -1,7 +1,3 @@
-console.log('HI')
-
-
-
 // ==============
 
 // - 페이지랑 오브젝트랑 어떻게 연결하지?
@@ -71,51 +67,9 @@ const gamesList = {
   }
 }
 
-
-const totalPageArray = Object.keys(gamesList)
-const totalPage = totalPageArray.length / 2
-const navigationList = document.querySelector('.navigation')
-const navigationNext = navigationList.querySelector('.navi-next')
-const navigationPrev = navigationList.querySelector('.navi-prev')
-
-console.log(Math.ceil(totalPage) + '토탈 페이지')
-
-// 숫자 카운터
-let currentPageNumber = 1
-
-// if문 너무 하드코딩임 수정 할 필요 있음
-function checkPage (currentPage) {
-  if (currentPage === 1) {
-    console.log('1~2페이지임?')
-  } 
-  else if (currentPage === 2) {
-    console.log('3~4페이지임?')
-  }
-  else if (currentPage === 3) {
-    console.log('5~6페이지임?')
-  } else {
-    console.log('다른 페이지임')
-  }
-}
-
-
-
 // ALT 설명 문구 - 카드 영역
 const characterAlt = ' 게임 캐릭터'
 const backgroundAlt = ' 게임 캐릭터 배경'
-
-// HTML 선택자 - 카드 영역
-
-
-
-// 받는값 object
-// 만들어야 하는 기능 : src, text add
-/* onst key = gamesList.key
-const value = gamesList.key.value
-console.log(gamesList[key][value]) */
-// 오... 해당 페이지를 받아야 할거같은데 해당 페이지가 1일때 1-2를 뿌리고 2일때 3-4을 뿌리고
-
-
 
 // 정리...해야겠는데 이거 정리....한번한다고해도되나/? 다른방법이 있을거같은데
 const cardWrap = document.querySelector('.cards-wrap')
@@ -136,12 +90,44 @@ const secondInfoGenre = secondCard.querySelector('[data-info="genre"]')
 const navigationArea = document.querySelector('.navigation')
 const totalStateNow = navigationArea.querySelector('[data-page="now"]')
 
+const navigationList = document.querySelector('.navigation')
+const navigationNext = navigationList.querySelector('.navi-next')
+const navigationPrev = navigationList.querySelector('.navi-prev')
+
+// 전체 페이지 - 오브젝트 총 개수 / 페이지의 개수
+const totalPageArray = Object.keys(gamesList)
+const totalPage = totalPageArray.length / 2
+
+// 숫자 카운터
+let currentPageNumber = 1
+
+// if문 너무 하드코딩임 수정 할 필요 있음
+function checkPage (currentPage) {
+  if (currentPage === 1) {
+    console.log('1~2페이지임?')
+  } 
+  else if (currentPage === 2) {
+    console.log('3~4페이지임?')
+  }
+  else if (currentPage === 3) {
+    console.log('5~6페이지임?')
+  } else {
+    console.log('다른 페이지임')
+  }
+}
+
+// 받는값 object
+// 만들어야 하는 기능 : src, text add
+/* onst key = gamesList.key
+const value = gamesList.key.value
+console.log(gamesList[key][value]) */
+// 오... 해당 페이지를 받아야 할거같은데 해당 페이지가 1일때 1-2를 뿌리고 2일때 3-4을 뿌리고
+
+
 // 카드 인포 추가 - 카드 영역
 function gameInfoAdd (games) {
-  // 이거 HTML로 그려야하나? 고민 < 랜더할때 깜박거리면 그러지 않기
   // 이거.. 직접하드코딩말고 id불러올때 바로 넣을 수 있게 하기
   // 1페이지 일때 +id 1. 2하면될거같은데  id값이 안불러와짐 ㅠ 정확하게는 앞의 key값에 따라 id값이 안불러와짐 key문제
-  // 
   if(1 === games['chronoOdyssey']['id']) {
     firstCardCharacter.src = games['odin']['character']
     firstCardCharacter.alt = games['odin']['title'] + characterAlt
@@ -150,7 +136,6 @@ function gameInfoAdd (games) {
     firstInfoTitle.textContent = games['odin']['title']
     firstInfoSubScript.textContent = games['odin']['subTitle']
     firstInfoGenre.textContent = games['odin']['genre']
-
 
     secondCardCharacter.src = games['archeAgeWar']['character']
     secondCardCharacter.alt = games['archeAgeWar']['title'] + characterAlt
@@ -163,14 +148,13 @@ function gameInfoAdd (games) {
     totalStateNow.textContent = currentPageNumber
   }
 }
-
 gameInfoAdd(gamesList)
 
-// 4/0 부분 너무 하드코딩임 수정 할 필요 있음
-// 1/3 부분 너무 하드코딩임 수정 할 필요 있음
+
+// 이전 버튼 / 다음 버튼
 navigationNext.addEventListener('click', () => {
   currentPageNumber++
-  if (currentPageNumber >= 4) {
+  if (currentPageNumber >= totalPage + 1) {
     currentPageNumber === (currentPageNumber = 1)
   }
   console.log(currentPageNumber)
@@ -180,7 +164,7 @@ navigationNext.addEventListener('click', () => {
 navigationPrev.addEventListener('click', () => {
   currentPageNumber--
   if (currentPageNumber <= 0) {
-    currentPageNumber === (currentPageNumber = 3)
+    currentPageNumber === (currentPageNumber = totalPage)
   }
   console.log(currentPageNumber)
   checkPage(currentPageNumber)
