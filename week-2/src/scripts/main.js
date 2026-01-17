@@ -1,21 +1,3 @@
-// ==============
-
-// - 페이지랑 오브젝트랑 어떻게 연결하지?
-//   - 일단 id?
-// - 이거 객체의 개수에 맞게 자동으로 페이지 수 늘어나야 하는거아닌가?
-//       - ( 맨위에 적어둠 id + 1, id ++ ) 근데 이게 맞는건지 고민
-
-
-//정리
-// 1. object에 데이터 넣어 관리
-// 1-1 id필수
-// 1-2 객체 개수 카운터 할 수 있어야함
-// 2 총개수 / 2
-// 2-1 parseInt로 정수로 떨어지게
-// 2-2 page id + / id ++
-// 3 다음 페이지 누를때 마다 alt, img, title, subtitle 변경
-
-
 const gamesList = {
    chronoOdyssey: {
     id: 1,
@@ -108,7 +90,6 @@ const navigationNext = getElement('.navi-next', navigationArea)
 const navigationPrev = getElement('.navi-prev', navigationArea)
 
 // 받는값 object
-// 만들어야 하는 기능 : src, text add
 /* onst key = gamesList.key
 const value = gamesList.key.value
 console.log(gamesList[key][value]) */
@@ -119,30 +100,77 @@ console.log(gamesList[key][value]) */
 let currentPageNumber = 1
 
 // 카드 인포 추가 - 카드 영역
-function gameInfoAdd (games) {
-  // 이거.. 직접하드코딩말고 id불러올때 바로 넣을 수 있게 하기
-  // 1페이지 일때 +id 1. 2하면될거같은데  id값이 안불러와짐 ㅠ 정확하게는 앞의 key값에 따라 id값이 안불러와짐 key문제
-  if(1 === games['chronoOdyssey']['id']) {
-    firstCardCharacter.src = games['odin']['character']
-    firstCardCharacter.alt = games['odin']['title'] + characterAlt
-    firstCardBackground.style.backgroundImage = games['odin']['background']
-    firstCardBackground.alt = games['odin']['title'] + backgroundAlt
-    firstInfoTitle.textContent = games['odin']['title']
-    firstInfoSubScript.textContent = games['odin']['subTitle']
-    firstInfoGenre.textContent = games['odin']['genre']
+// 타겟 아이디가 ++ --가 되어야하는데.. 어떻게 그 기준을 잡지? 
+// 
+function gameInfoAdd (currentPage, games) {
+  const gameFind = Object.values(games).find(game => game)
+  const gameId = gameFind.id
+  
+  console.log(gameId , ' ------------------------ 아이디인가요?')
+  console.log('--- 비교 디버깅 시작 ---');
+  console.log('내 페이지:', currentPage, typeof currentPage); 
+  console.log('타겟 ID:', gameId, typeof gameId);
+  console.log('일치 여부:', currentPage === gameId);
+  games['chronoOdyssey'][currentPage]
 
-    secondCardCharacter.src = games['archeAgeWar']['character']
-    secondCardCharacter.alt = games['archeAgeWar']['title'] + characterAlt
-    secondCardBackground.style.backgroundImage = games['archeAgeWar']['background']
-    secondCardBackground.alt = games['archeAgeWar']['title'] + backgroundAlt
-    secondInfoTitle.textContent = games['archeAgeWar']['title']
-    secondInfoSubScript.textContent = games['archeAgeWar']['subTitle']
-    secondInfoGenre.textContent = games['archeAgeWar']['genre']
-
+  
+  // 음........ 첫번째 배열의... 캐릭터나 타이틀 추가?
+  // 그러면 gameFind[currentPage].chracter이렇게 해줘야할지도
+  // 근데 이게 안된단말이지
+  // 2번이면 currentPage +1 +2가되어야하는데 id + 2를 할수가 없었음..
+  // 배열의 전체 길이에서 첫번째일때 == currentPage가 동일하고 gamefind첫번쨰 배열, 두번째 배열 불러오기
+  // 엥 이상한데 currentPage(1) 일때 .. 뭐랑 비교하는데? 아 이래서 꼬였구나
+  // 첫번쨰 if문이 이상함 currentPAge는 항상 바뀜 근데 gameId는 고정이잖아? 거기 +1할수도없지 그치 그건 객체니까..*
+  // 음 그럼 조건을 새로짜자
+  // 페이지가 1이면 1페이지 A 2페이지 B 3페이지 C 는 하드코딩 이건... 페이지가 늘어나면 곤란함
+  // 
+  // 배열의 전체에서 두번째일때 
+  if(currentPage === gameId) {
+    // 첫번째 card html 추가
+    firstCardCharacter.src = gameFind.character
+    firstCardCharacter.alt = gameFind.title + characterAlt
+    firstCardBackground.style.backgroundImage = gameFind.background
+    firstCardBackground.alt = gameFind.title + backgroundAlt
+    firstCardBackground.ariaLabel = gameFind.title + backgroundAlt
+    firstInfoTitle.textContent = gameFind.title
+    firstInfoSubScript.textContent = gameFind.subTitle
+    firstInfoGenre.textContent = gameFind.genre
+    // 두번째 card html 추가
+    secondCardCharacter.src = gameFind.character
+    secondCardCharacter.alt = gameFind.title + characterAlt
+    secondCardBackground.style.backgroundImage = gameFind.background
+    secondCardBackground.ariaLabel = gameFind.title + backgroundAlt
+    secondInfoTitle.textContent = gameFind.title
+    secondInfoSubScript.textContent = gameFind.subTitle
+    secondInfoGenre.textContent = gameFind.genre
+    // 페이지네비게이션에 현재 페이지 반영
     totalStateNow.textContent = currentPageNumber
+    gameFind.id + 2
+    console.log(gameId + '========================================== ')
+  } else if (currentPage === 3) {
+    // 첫번째 card html 추가
+    firstCardCharacter.src = games['chronoOdyssey']['character']
+    firstCardCharacter.alt = games['chronoOdyssey']['title'] + characterAlt
+    firstCardBackground.style.backgroundImage = games['chronoOdyssey']['background']
+    firstCardBackground.alt = games['chronoOdyssey']['title'] + backgroundAlt
+    firstInfoTitle.textContent = games['chronoOdyssey']['title']
+    firstInfoSubScript.textContent = games['chronoOdyssey']['subTitle']
+    firstInfoGenre.textContent = games['chronoOdyssey']['genre']
+    // 두번째 card html 추가
+    secondCardCharacter.src = games['POE2']['character']
+    secondCardCharacter.alt = games['POE2']['title'] + characterAlt
+    secondCardBackground.style.backgroundImage = games['POE2']['background']
+    secondCardBackground.alt = games['POE2']['title'] + backgroundAlt
+    secondInfoTitle.textContent = games['POE2']['title']
+    secondInfoSubScript.textContent = games['POE2']['subTitle']
+    secondInfoGenre.textContent = games['POE2']['genre']
+    // 페이지네비게이션에 현재 페이지 반영
+    totalStateNow.textContent = currentPageNumber
+  } else {
+    console.log ( ' 에[ㅇ?')
   }
 }
-gameInfoAdd(gamesList)
+gameInfoAdd(1, gamesList)
 
 
 // if문 너무 하드코딩임 수정 할 필요 있음
@@ -170,16 +198,14 @@ navigationNext.addEventListener('click', () => {
   if (currentPageNumber >= totalPage + 1) {
     currentPageNumber === (currentPageNumber = 1)
   }
-  console.log(currentPageNumber)
-  checkPage(currentPageNumber)
-  gameInfoAdd(gamesList)
+  // checkPage(currentPageNumber)
+  gameInfoAdd(currentPageNumber, gamesList)
 })
 navigationPrev.addEventListener('click', () => {
   currentPageNumber--
   if (currentPageNumber <= 0) {
     currentPageNumber === (currentPageNumber = totalPage)
   }
-  console.log(currentPageNumber)
-  checkPage(currentPageNumber)
-  gameInfoAdd(gamesList)
+  // checkPage(currentPageNumber)
+  gameInfoAdd(currentPageNumber, gamesList)
 })
