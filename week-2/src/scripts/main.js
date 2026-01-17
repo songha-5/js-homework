@@ -107,13 +107,6 @@ const totalStateNow = getElement('[data-page="now"]', navigationArea)
 const navigationNext = getElement('.navi-next', navigationArea)
 const navigationPrev = getElement('.navi-prev', navigationArea)
 
-// 전체 페이지 - 오브젝트 총 개수 / 페이지의 개수
-const totalPageArray = Object.keys(gamesList)
-const totalPage = totalPageArray.length / 2
-
-// 숫자 카운터
-let currentPageNumber = 1
-
 
 
 // if문 너무 하드코딩임 수정 할 필요 있음
@@ -138,6 +131,9 @@ const value = gamesList.key.value
 console.log(gamesList[key][value]) */
 // 오... 해당 페이지를 받아야 할거같은데 해당 페이지가 1일때 1-2를 뿌리고 2일때 3-4을 뿌리고
 
+
+// 숫자 카운터
+let currentPageNumber = 1
 
 // 카드 인포 추가 - 카드 영역
 function gameInfoAdd (games) {
@@ -165,6 +161,10 @@ function gameInfoAdd (games) {
 }
 gameInfoAdd(gamesList)
 
+
+// 전체 페이지 - 오브젝트 총 개수 / 페이지의 개수
+const totalPageArray = Object.keys(gamesList)
+const totalPage = totalPageArray.length / 2
 
 // 이전 버튼 / 다음 버튼
 navigationNext.addEventListener('click', () => {
