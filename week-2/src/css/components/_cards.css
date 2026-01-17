@@ -39,6 +39,12 @@
         }
       }
     }
+
+    &:last-child {
+      .card-background {
+        background-image: url('/src/images/game_background_2.png');
+      }
+    }
   }
 
   /* 카드 텍스트 */
