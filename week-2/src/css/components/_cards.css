@@ -7,13 +7,13 @@
   /* 카드 그래픽 */
   .card-item {
     width: 160px;
+    cursor: pointer;
 
     .card-graphic {
       position: relative;
       height: 172px;
       overflow: hidden;
       border-radius: 8px;
-      cursor: pointer;
 
        .card-character {
         position: relative;
@@ -33,18 +33,22 @@
         background-image: url('/src/images/game_background_1.png');
         background-size: cover;
       }
-
-      &:hover {
-        .card-character {
-          transform: scale(1.02);
-          translate: 0 -0.1px;
-        }
-      }
     }
 
     &:last-child {
       .card-background {
         background-image: url('/src/images/game_background_2.png');
+      }
+    }
+
+    &:hover {
+      .card-info-title,
+      .card-info-subScript {
+        opacity: 64%;
+      }
+      .card-character {
+        transform: scale(1.02);
+        translate: 0 -0.1px;
       }
     }
   }
