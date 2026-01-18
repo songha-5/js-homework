@@ -6,10 +6,11 @@
 
   /* 카드 그래픽 */
   .card-item {
-    min-width: 0;
+    width: 160px;
 
     .card-graphic {
       position: relative;
+      height: 172px;
       overflow: hidden;
       border-radius: 8px;
       cursor: pointer;
