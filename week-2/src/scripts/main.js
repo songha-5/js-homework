@@ -32,22 +32,22 @@ const gamesList = {
     character: "/src/images/game_character_4.png",
     background: "url('/src/images/game_background_4.png')"
   },
-  /* ROM: {
+  ROM: {
     id: 5,
     title: "롬: 리멤버 오브 마제스티",
     subTitle: "세계는 하나의 전장이 된다",
     genre: "MMORPG",
     character: "/src/images/game_character_5.png",
     background: "url('/src/images/game_background_5.png')"
-  }, */
-  /* battleground: {
+  },
+  battleground: {
     id: 6,
     title: "배틀그라운드",
     subTitle: "최후까지 생존하라!",
     genre: "배틀로얄",
     character: "/src/images/game_character_6.png",
     background: "url('/src/images/game_background_6.png')"
-  } */
+  }
 }
 
 // 변수 이름 축약을 위한 함수
@@ -85,12 +85,20 @@ const secondInfoGenre = getElement(infoGenre, secondCard)
 
 // 네비게이션 선택
 const navigationArea = getElement('.navigation')
-const totalStateNow = getElement('[data-page="now"]', navigationArea)
+const nowStateNow = getElement('[data-page="now"]', navigationArea)
+const totalStateNow = getElement('[data-page="total"]', navigationArea)
 const navigationNext = getElement('.navi-next', navigationArea)
 const navigationPrev = getElement('.navi-prev', navigationArea)
 
 // 현재페이지 카운터
-let currentPageNumber = Math.ceil(1)
+let currentPageNumber = 1
+
+// 전체 페이지 - 오브젝트 총 개수 / 페이지의 개수
+const totalPageArray = Object.keys(gamesList)
+const totalPage = Math.ceil(totalPageArray.length / 2)
+
+// 전체 페이지 적용
+totalStateNow.textContent = totalPage
 
 // 페이지 네비게이션에 따라 HTML구조 변경
 function gameInfoAdd (currentPage, games) {
@@ -102,7 +110,6 @@ function gameInfoAdd (currentPage, games) {
   // object.id랑 페이지 짝수/홀수 매칭
   const oddPage = Object.values(games).find(game => game.id === oddIdPage)
   const evenPage = Object.values(games).find(game => game.id === evenIdPage)
-
 
   // 짝수 HTML페이지 추가
   if(oddPage) {
@@ -116,11 +123,19 @@ function gameInfoAdd (currentPage, games) {
     firstInfoGenre.textContent = oddPage.genre
 
     // 페이지네비게이션에 현재 페이지 반영
-    totalStateNow.textContent = currentPageNumber
+    nowStateNow.textContent = currentPageNumber
   } else {
-    firstCard.innerHTML = `
-      <div></div>
-    `;
+    // 짝수 배열이 하나 비었을 때 공란으로 보임
+    firstCardCharacter.src = ''
+    firstCardCharacter.alt = ''
+    firstCardBackground.style.backgroundImage = "url('')"
+    firstCardBackground.ariaLabel = ''
+    firstInfoTitle.textContent = ''
+    firstInfoSubScript.textContent = ''
+    firstInfoGenre.textContent = ''
+
+    // 페이지네비게이션에 현재 페이지 반영
+    nowStateNow.textContent = currentPageNumber
   }
   // 홀수 HTML페이지 추가
   if(evenPage) {
@@ -133,17 +148,22 @@ function gameInfoAdd (currentPage, games) {
     secondInfoGenre.textContent = evenPage.genre
 
     // 페이지네비게이션에 현재 페이지 반영
-    totalStateNow.textContent = currentPageNumber
-  } else {
-    secondCard.innerHTML = `
-      <div></div>
-    `;
+    nowStateNow.textContent = currentPageNumber
+  } 
+  else {
+    // 홀수 배열이 하나 비었을 때 공란으로 보임
+    secondCardCharacter.src = ''
+    secondCardCharacter.alt = ''
+    secondCardBackground.style.backgroundImage = "url('')"
+    secondCardBackground.ariaLabel = ''
+    secondInfoTitle.textContent = ''
+    secondInfoSubScript.textContent = ''
+    secondInfoGenre.textContent = ''
+
+    // 페이지네비게이션에 현재 페이지 반영
+    nowStateNow.textContent = currentPageNumber
   }
 }
-
-// 전체 페이지 - 오브젝트 총 개수 / 페이지의 개수
-const totalPageArray = Object.keys(gamesList)
-const totalPage = totalPageArray.length / 2
 
 // 페이지 숫자 올리기
 function countPlus (plus) {
@@ -172,3 +192,5 @@ navigationPrev.addEventListener('click', () => {
   countMinus(currentPageNumber)
   gameInfoAdd(currentPageNumber, gamesList)
 })
+
+
