@@ -1,3 +1,4 @@
+// 게임 모음리스트
 const gamesList = {
    chronoOdyssey: {
     id: 1,
@@ -49,7 +50,6 @@ const gamesList = {
   }
 }
 
-
 // 변수 이름 축약을 위한 함수
 const getElement = (selector, context = document) => {
   return context.querySelector(selector);
@@ -94,63 +94,74 @@ let currentPageNumber = 1
 
 // 페이지 네비게이션에 따라 HTML구조 변경
 function gameInfoAdd (currentPage, games) {
-  // 객체값이 객체의 id값과 현재페이지가 동일하면 반환 / +1 되면 반환
-  const gameFind = Object.values(games).find(game => game.id === currentPage)
-  const gameNext = Object.values(games).find(game => game.id === currentPage + 1)
-  // 반환된 객체의 id값 저장
-  let gameId = gameFind.id
-  let gameNextId = gameNext.id
 
-  console.log(gameNextId + '이거 뭐나와용?')
+  // 페이지 계산 짝수 / 홀수
+  const oddIdPage = (currentPage * 2) - 1
+  const evenIdPage = currentPage * 2
 
-  console.log(gameFind + ' -------------------- gameFind')
-  
-  if(currentPage === gameId) {
-    // 첫번째 card html 추가
-    firstCardCharacter.src = gameFind.character
-    firstCardCharacter.alt = gameFind.title + characterAlt
-    firstCardBackground.style.backgroundImage = gameFind.background
-    firstCardBackground.alt = gameFind.title + backgroundAlt
-    firstCardBackground.ariaLabel = gameFind.title + backgroundAlt
-    firstInfoTitle.textContent = gameFind.title
-    firstInfoSubScript.textContent = gameFind.subTitle
-    firstInfoGenre.textContent = gameFind.genre
-    // 두번째 card html 추가
-    secondCardCharacter.src = gameNext.character
-    secondCardCharacter.alt = gameNext.title + characterAlt
-    secondCardBackground.style.backgroundImage = gameNext.background
-    secondCardBackground.ariaLabel = gameNext.title + backgroundAlt
-    secondInfoTitle.textContent = gameNext.title
-    secondInfoSubScript.textContent = gameNext.subTitle
-    secondInfoGenre.textContent = gameNext.genre
+  // object.id가
+  const oddPage = Object.values(games).find(game => game.id === oddIdPage)
+  const evenPage = Object.values(games).find(game => game.id === evenIdPage)
+
+
+  // 짝수 HTML페이지 추가
+  if(oddPage) {
+    firstCardCharacter.src = oddPage.character
+    firstCardCharacter.alt = oddPage.title + characterAlt
+    firstCardBackground.style.backgroundImage = oddPage.background
+    firstCardBackground.alt = oddPage.title + backgroundAlt
+    firstCardBackground.ariaLabel = oddPage.title + backgroundAlt
+    firstInfoTitle.textContent = oddPage.title
+    firstInfoSubScript.textContent = oddPage.subTitle
+    firstInfoGenre.textContent = oddPage.genre
+
     // 페이지네비게이션에 현재 페이지 반영
     totalStateNow.textContent = currentPageNumber
-
-    // 어쉬; 이거만의 문제가 아님
-    // 둘다 +2가 되어야함
-    gameId = gameId + 2
-    gameNextId = gameNextId + 2
-    console.log(gameId + ' ------------------------ 아이디인가요?')
-    console.log(gameNextId + ' ------------------------ 다음 아이디인가요?')
   }
+  // 홀수 HTML페이지 추가
+  if(evenPage) {
+    secondCardCharacter.src = evenPage.character
+    secondCardCharacter.alt = evenPage.title + characterAlt
+    secondCardBackground.style.backgroundImage = evenPage.background
+    secondCardBackground.ariaLabel = evenPage.title + backgroundAlt
+    secondInfoTitle.textContent = evenPage.title
+    secondInfoSubScript.textContent = evenPage.subTitle
+    secondInfoGenre.textContent = evenPage.genre
+
+    // 페이지네비게이션에 현재 페이지 반영
+    totalStateNow.textContent = currentPageNumber
+  }
+  
 }
 
 // 전체 페이지 - 오브젝트 총 개수 / 페이지의 개수
 const totalPageArray = Object.keys(gamesList)
 const totalPage = totalPageArray.length / 2
 
-// 이전 버튼 / 다음 버튼
+// 페이지 숫자 올리기
+function countPlus (plus) {
+  if (plus >= totalPage + 1) {
+    plus === (currentPageNumber = 1)
+  }
+}
+// 페이지 숫자 내리기
+function countMinus (minus) {
+  if (minus <= 0) {
+    minus === (currentPageNumber = totalPage)
+  }
+}
+
+// 이전 버튼 작동
 navigationNext.addEventListener('click', () => {
   currentPageNumber++
-  if (currentPageNumber >= totalPage + 1) {
-    currentPageNumber === (currentPageNumber = 1)
-  }
+  
+  countPlus(currentPageNumber)
   gameInfoAdd(currentPageNumber, gamesList)
 })
+// 다음 버튼 작동
 navigationPrev.addEventListener('click', () => {
   currentPageNumber--
-  if (currentPageNumber <= 0) {
-    currentPageNumber === (currentPageNumber = totalPage)
-  }
+  
+  countMinus(currentPageNumber)
   gameInfoAdd(currentPageNumber, gamesList)
 })
