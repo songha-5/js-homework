@@ -61,6 +61,7 @@
       margin-block-start: 8px;
       line-height: 1.2;
       letter-spacing: -0.02em;
+      transition: opacity 0.3s ease-in-out;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -71,6 +72,7 @@
       margin-block-start: 2px;
       line-height: 1.2;
       letter-spacing: -0.02em;
+      transition: opacity 0.3s ease-in-out;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
