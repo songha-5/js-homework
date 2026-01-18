@@ -16,6 +16,8 @@
 
        .card-character {
         position: relative;
+        width: 160px;
+        height: 172px;
         transition: all 0.3s ease-in-out;
         left: 1px;
         bottom: -1px;
@@ -30,6 +32,7 @@
         height: 156px;
         border-radius: 8px;
         background-image: url('/src/images/game_background_1.png');
+        background-size: cover;
       }
 
       &:hover {
