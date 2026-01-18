@@ -32,22 +32,22 @@ const gamesList = {
     character: "/src/images/game_character_4.png",
     background: "url('/src/images/game_background_4.png')"
   },
-  ROM: {
+  /* ROM: {
     id: 5,
     title: "롬: 리멤버 오브 마제스티",
     subTitle: "세계는 하나의 전장이 된다",
     genre: "MMORPG",
     character: "/src/images/game_character_5.png",
     background: "url('/src/images/game_background_5.png')"
-  },
-  battleground: {
+  }, */
+  /* battleground: {
     id: 6,
     title: "배틀그라운드",
     subTitle: "최후까지 생존하라!",
     genre: "배틀로얄",
     character: "/src/images/game_character_6.png",
     background: "url('/src/images/game_background_6.png')"
-  }
+  } */
 }
 
 // 변수 이름 축약을 위한 함수
@@ -90,7 +90,7 @@ const navigationNext = getElement('.navi-next', navigationArea)
 const navigationPrev = getElement('.navi-prev', navigationArea)
 
 // 현재페이지 카운터
-let currentPageNumber = 1
+let currentPageNumber = Math.ceil(1)
 
 // 페이지 네비게이션에 따라 HTML구조 변경
 function gameInfoAdd (currentPage, games) {
@@ -99,7 +99,7 @@ function gameInfoAdd (currentPage, games) {
   const oddIdPage = (currentPage * 2) - 1
   const evenIdPage = currentPage * 2
 
-  // object.id가
+  // object.id랑 페이지 짝수/홀수 매칭
   const oddPage = Object.values(games).find(game => game.id === oddIdPage)
   const evenPage = Object.values(games).find(game => game.id === evenIdPage)
 
@@ -117,6 +117,10 @@ function gameInfoAdd (currentPage, games) {
 
     // 페이지네비게이션에 현재 페이지 반영
     totalStateNow.textContent = currentPageNumber
+  } else {
+    firstCard.innerHTML = `
+      <div></div>
+    `;
   }
   // 홀수 HTML페이지 추가
   if(evenPage) {
@@ -130,8 +134,11 @@ function gameInfoAdd (currentPage, games) {
 
     // 페이지네비게이션에 현재 페이지 반영
     totalStateNow.textContent = currentPageNumber
+  } else {
+    secondCard.innerHTML = `
+      <div></div>
+    `;
   }
-  
 }
 
 // 전체 페이지 - 오브젝트 총 개수 / 페이지의 개수
