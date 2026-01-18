@@ -1,0 +1,89 @@
+.cards-wrap {
+  display: flex;
+  gap: 16px;
+  padding-inline: 14px;
+  margin-block-start: 14px;
+
+  /* 카드 그래픽 */
+  .card-item {
+    width: 160px;
+    cursor: pointer;
+
+    .card-graphic {
+      position: relative;
+      height: 172px;
+      overflow: hidden;
+      border-radius: 8px;
+
+       .card-character {
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        left: 1px;
+        bottom: -1px;
+        z-index: 1;
+      }
+
+      .card-background {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 156px;
+        border-radius: 8px;
+        background-image: url('/src/images/game_background_1.png');
+        background-size: cover;
+      }
+    }
+
+    &:last-child {
+      .card-background {
+        background-image: url('/src/images/game_background_2.png');
+      }
+    }
+
+    &:hover {
+      .card-info-title,
+      .card-info-subScript {
+        opacity: 64%;
+      }
+      .card-character {
+        transform: scale(1.02);
+        translate: 0 -0.1px;
+      }
+    }
+  }
+
+  /* 카드 텍스트 */
+  .card-info {
+    .card-info-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-block-start: 8px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      transition: opacity 0.3s ease-in-out;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .card-info-subScript {
+      font-size: 0.875rem;
+      font-weight: 350;
+      margin-block-start: 2px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      transition: opacity 0.3s ease-in-out;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .card-info-genre {
+      font-size: 0.875rem;
+      font-weight: 350;
+      margin-block-start: 8px;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--sub-black);
+    }
+  }
+}
