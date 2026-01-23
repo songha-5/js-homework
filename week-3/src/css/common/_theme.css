@@ -14,5 +14,7 @@
   --subText-gray: hsla(0, 0%, 58%, 1);
   --title-gray: hsla(210, 22%, 42%, 1);
   --card-gray: hsla(212, 11%, 50%, 1);
-
+  --card-outline-gray: hsla(0, 0%, 87%, 1);
+  --outline-gray: hsla(0, 0%, 0%, 0.2);
+  --button-gray: hsla(0, 0%, 85%, 1);
 }
