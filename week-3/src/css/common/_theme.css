@@ -1,3 +1,18 @@
 :root {
+  --black: hsla(0, 0%, 0%, 1);
+  --white: hsla(0, 0%, 100%, 1);
+
+  --point-blue: hsla(216, 96%, 47%, 1);
+  --select-blue :hsla(225, 80%, 98%, 1);
+
+  --waring-red: hsla(5, 66%, 50%, 1);
+
+  --success-green: hsla(141, 42%, 49%, 1);
+
+  --default-gray: hsla(0, 0%, 58%, 1);
+  --text-gray: hsla(0, 0%, 50%, 1);
+  --subText-gray: hsla(0, 0%, 58%, 1);
+  --title-gray: hsla(210, 22%, 42%, 1);
+  --card-gray: hsla(212, 11%, 50%, 1);
 
 }
