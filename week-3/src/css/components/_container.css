@@ -1,0 +1,37 @@
+main {
+  background: url('/src/images/cover.png') left 0 / contain ;
+  background-repeat: no-repeat;
+}
+
+@media (orientation: portrait) {
+  main {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+
+article {
+  position: absolute;
+  width: 50%;
+  height: calc(100% - 20px);
+  right: 0;
+  top: 50%;
+  translate: -10px -50%;
+  border-radius: 16px;
+  background-color: var(--white);
+  border: 1px solid var(--outline-gray);
+  overflow: hidden;
+}
+
+.tab_body {
+  height: 100%;
+  padding-block-start: 34px;
+  padding-inline: 25px;
+
+  .tab_body_title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-block-end: 16px;
+  }
+}
