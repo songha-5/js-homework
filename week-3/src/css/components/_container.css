@@ -46,3 +46,8 @@ article {
 .investment_status {
   display: none;
 }
+
+/* 최근 거래 카드 영역 */
+.transaction_history {
+  display: none;
+}
