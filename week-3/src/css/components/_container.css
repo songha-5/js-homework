@@ -44,4 +44,5 @@ article {
 
 /* 투자 현황 영역 */
 .investment_status {
+  display: none;
 }
