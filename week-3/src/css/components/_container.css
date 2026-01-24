@@ -28,10 +28,20 @@ article {
   height: 100%;
   padding-block-start: 34px;
   padding-inline: 25px;
-
+  
   .tab_body_title {
     font-size: 1.125rem;
     font-weight: 700;
     margin-block-end: 16px;
+    color: var(--tiile-black);
   }
+}
+
+/* 계좌 정보 영역 */
+.account_inquiry {
+  display: none;
+}
+
+/* 투자 현황 영역 */
+.investment_status {
 }
