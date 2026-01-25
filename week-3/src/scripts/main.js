@@ -21,14 +21,11 @@ for (let index = 0, length = tabButton.length; index < length; index++ ) {
     selected.ariaSelected = false
     tabButton[index].ariaSelected = true
 
-    // 해당 탭과 컨텐츠 이름이 매칭되면 class='tab' 추가
-    if(tabButton[index].dataset['action'] === tabContent[index].dataset['tab']) {
-      // 기존 선택되어있는 탭클래스 제거 후 추가
-      if(tab){
-        tab.classList.remove('tab')
-      }
-      tabContent[index].classList.add('tab')
+    // 기존 선택되어있는 탭클래스 제거 후 추가
+    if(tab){
+      tab.classList.remove('tab')
     }
+    tabContent[index].classList.add('tab')
   })
 }
 
