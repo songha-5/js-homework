@@ -13,14 +13,11 @@ for (let i = 0, l = tabButton.length; i < l; i++ ) {
     // tabButton.setAttribute('aria-selected', 'flase')
     tabButton[i].setAttribute('aria-selected', 'true')
 
-
-    tabContent[i].classList.add('tab')
+    if(tabButton[i].dataset['action'] === tabContent[i].dataset['tab']) {
+      tabContent[i].classList.add('tab')
+    }
   })
 }
-
-
-// ==================
-
 
 
 
