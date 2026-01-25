@@ -1,0 +1,201 @@
+.tab_content {
+  height: 100%;
+}
+
+.tab_scoll_area {
+  height: calc(100% - 140px);
+  overflow-y: auto;
+}
+
+/* 계좌 정보 카드 */
+.card_account_content {
+  padding: 26px 20px 22px;
+  border-radius: 16px;
+  border: 1px solid var(--card-outline-gray);
+  
+  & + & {
+    margin-block: 16px;
+  }
+
+  &:nth-child(even) {
+    .account_money {
+      color: var(--success-green);
+    }
+  }
+
+  .account_title {
+    font-size: 0.8125rem;
+    color: var(--text-gray);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .account_number {
+    font-size: 0.9375rem;
+    color: var(--black);
+    font-weight: 500;
+    margin-block-start: 12px;
+    line-height: 1.2;
+  }
+  
+  .account_money {
+    font-size: 1.25rem;
+    color: var(--point-blue);
+    font-weight: 700;
+    margin-block-start: 14px;
+    line-height: 1.2;
+  }
+}
+
+/* 투자 현황 카드 */
+.card_investment {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 20px;
+  border: 1px solid var(--card-outline-gray);
+  border-radius: 14px;
+
+  &+& {
+    margin-block: 12px;
+  }
+  
+  .investment_title {
+    color: var(--title-2-gray);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .investment_keep {
+    font-size: 0.75rem;
+    color: var(--sub-title-gray);
+    margin-block-start: 4px;
+    order: 1;
+  }
+
+  .investment_percent {
+    font-size: 0.8125rem;
+    color: var(--success-green);
+    font-weight: 500;
+    text-align: right;
+    margin-block-start: 8px;
+    order: 2;
+
+    &.minus {
+      color: var(--waring-red);
+    }
+  }
+
+  .investment_money {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--black);
+    text-align: right;
+  }
+}
+
+/* 최근 거래 카드 */
+.card_history {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 19px 20px;
+  border: 1px solid var(--card-outline-gray);
+  border-radius: 14px;
+
+  &+& {
+    margin-block: 12px;
+  }
+
+  .history_day {
+    font-size: 0.75rem;
+    color: var(--sub-title-gray);
+  }
+
+  .history_title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    margin-block-start: 9px;
+    line-height: 1.2;
+    color: var(--navy-gray);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    order: 1;
+  }
+
+  .history_money {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--point-blue);
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+    text-align: right;
+    align-content: center;
+
+    &.minus {
+      color: var(--waring-red);
+    }
+  }
+}
+
+/* 카드 관리 */
+.card_keep {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto auto;
+  padding: 28px 26px 26px 23px;
+  background-color: var(--card-gray);
+  border-radius: 14px;
+  grid-template-areas:
+    "title  ."
+    "number number"
+    "text   type"
+    "money  type";
+
+  &.mastercard {
+    background-color: var(--point-blue);
+  }
+
+  &+& {
+    margin-block: 16px;
+  }
+
+  .keep_title {
+    grid-area: title;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .keep_type {
+    grid-area: type;
+    align-self: end;
+    justify-self: end;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .keep_number {
+    grid-area: number;
+    font-family: 'menlo';
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-block-start: 29px;
+    color: var(--white);
+  }
+
+  .keep_text {
+    grid-area: text;
+    font-size: 0.75rem;
+    color: var(--have-card-text);
+    margin-block-start: 29px;
+  }
+
+  .keep_money {
+    grid-area: money;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-block-start: 5px;
+  }
+}

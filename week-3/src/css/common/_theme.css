@@ -1,0 +1,26 @@
+:root {
+  --black: hsla(0, 0%, 0%, 1);
+  --white: hsla(0, 0%, 100%, 1);
+
+  --point-blue: hsla(216, 96%, 47%, 1);
+  --select-blue :hsla(225, 80%, 98%, 1);
+
+  --waring-red: hsla(5, 66%, 50%, 1);
+
+  --success-green: hsla(141, 42%, 49%, 1);
+
+  --navy-gray: hsla(210, 22%, 42%, 1);
+
+  --default-gray: hsla(0, 0%, 58%, 1);
+  --text-gray: hsla(0, 0%, 50%, 1);
+  --subText-gray: hsla(0, 0%, 58%, 1);
+  --title-gray: hsla(210, 22%, 42%, 1);
+  --tiile-black: hsla(0, 0%, 25%, 1);
+  --title-2-gray: hsla(209, 16%, 50%, 1);
+  --sub-title-gray: hsla(210, 11%, 60%, 1);
+  --card-gray: hsla(212, 11%, 50%, 1);
+  --card-outline-gray: hsla(0, 0%, 87%, 1);
+  --outline-gray: hsla(0, 0%, 0%, 0.2);
+  --button-gray: hsla(0, 0%, 85%, 1);
+  --have-card-text: hsla(216, 10%, 90%, 1);
+}

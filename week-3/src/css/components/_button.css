@@ -1,0 +1,56 @@
+.tab_herder {
+  display: flex;
+  overflow: hidden;
+
+}
+.tab_button {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  flex: 1;
+  border-bottom: 1px solid var(--button-gray);
+  
+  svg {
+    fill: var(--default-gray);
+  }
+  
+  .tab_button_text {
+    color: var(--subText-gray);
+    margin-block-start: 7px;
+    font-size: 0.875rem;
+  }
+
+  &.active {
+    position: relative;
+
+    svg {
+      fill: var(--point-blue);
+    }
+
+    .tab_button_text {
+      color: var(--point-blue);
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      height: 3px;
+      width: 100%;
+      border-radius: 6px 6px 0 0;
+      background-color: var(--point-blue);
+    }
+  }
+
+  &:hover {
+    background-color: var(--select-blue);
+  }
+
+  &:focus-visible {
+    outline: 2px dashed var(--point-blue);
+    outline-offset: -8px;
+    border-radius: 10px;
+  }
+}
