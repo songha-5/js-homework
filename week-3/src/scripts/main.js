@@ -1,19 +1,32 @@
 
 const header = document.querySelector('.tab_herder')
 const tabButton = header.querySelectorAll('.tab_button')
-const tabBody = document.querySelector('.tab_body')
-const tabContent = tabBody.querySelectorAll('.tab_content')
+const body = document.querySelector('.tab_body')
+const tabContent = body.querySelectorAll('.tab_content')
 
 for (let i = 0, l = tabButton.length; i < l; i++ ) {
-  console.log(i)
   // 각각의 탭 버튼을 눌렀을때 클릭 이벤트
   tabButton[i].addEventListener('click', () => {
-    // tabButton.classList.remove('active')
-    tabButton[i].classList.add('active')
-    // tabButton.setAttribute('aria-selected', 'flase')
-    tabButton[i].setAttribute('aria-selected', 'true')
+    const active = header.querySelector('.tab_button.active');
+    const tab = body.querySelector('.tab_content.tab');
+    const selected = header.querySelector('[aria-selected="true"]')
 
+    // 기존 선택되어있는 선택클래스 제거 후 추가
+    if(active) {
+      active.classList.remove('active')
+    }
+    tabButton[i].classList.add('active')
+
+    // aria-selected 선택된 tab에 true 그 외의 탭에 false
+    selected.ariaSelected = false
+    tabButton[i].ariaSelected = true
+
+    // 해당 탭과 컨텐츠 이름이 매칭되면 class='tab' 추가
     if(tabButton[i].dataset['action'] === tabContent[i].dataset['tab']) {
+      // 기존 선택되어있는 탭클래스 제거 후 추가
+      if(tab){
+        tab.classList.remove('tab')
+      }
       tabContent[i].classList.add('tab')
     }
   })
