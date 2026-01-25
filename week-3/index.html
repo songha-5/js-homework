@@ -46,7 +46,7 @@
           <span class="tab_button_text">거래 내역</span>
         </button>
         <!-- 가드 관리 탭 버튼 -->
-        <button class="tab_button" type="button" aria-controls="card-management" aria-selected="false">
+        <button class="tab_button" type="button" id="tab-card-management" aria-controls="card-management" aria-selected="false">
           <svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill="current" d="M0 20.1389C0 21.2891 0.93316 22.2222 2.08333 22.2222H22.9167C24.0668 22.2222 25 21.2891 25 20.1389V12.5H0V20.1389ZM8.33333 17.1875C8.33333 16.901 8.56771 16.6667 8.85417 16.6667H14.7569C15.0434 16.6667 15.2778 16.901 15.2778 17.1875V18.9236C15.2778 19.2101 15.0434 19.4444 14.7569 19.4444H8.85417C8.56771 19.4444 8.33333 19.2101 8.33333 18.9236V17.1875ZM2.77778 17.1875C2.77778 16.901 3.01215 16.6667 3.29861 16.6667H6.42361C6.71007 16.6667 6.94444 16.901 6.94444 17.1875V18.9236C6.94444 19.2101 6.71007 19.4444 6.42361 19.4444H3.29861C3.01215 19.4444 2.77778 19.2101 2.77778 18.9236V17.1875ZM25 4.8611V6.94444H0V4.8611C0 3.71093 0.93316 2.77777 2.08333 2.77777H22.9167C24.0668 2.77777 25 3.71093 25 4.8611Z" fill="#939393"/>
           </svg>
@@ -64,12 +64,12 @@
             <li class="card_account_content">
               <p class="account_title">입출금 계좌</p>
               <p class="account_number">123-456-789012</p>
-              <p class="account_moeny">12,345,678 원</p>
+              <p class="account_money">12,345,678 원</p>
             </li>
             <li class="card_account_content">
               <p class="account_title">입출금 계좌</p>
               <p class="account_number">123-456-789012</p>
-              <p class="account_moeny">12,345,678 원</p>
+              <p class="account_money">12,345,678 원</p>
             </li>
           </ul>
         </div>
@@ -108,32 +108,53 @@
             <li class="card_history">
               <p class="history_day">2026.01.22</p>
               <p class="history_title">스타벅스 강남점</p>
-              <p class="history_moeny minus">-6500 원</p>
+              <p class="history_money minus">-6500 원</p>
             </li>
             <li class="card_history">
               <p class="history_day">2026.01.22</p>
               <p class="history_title">급여 입금</p>
-              <p class="history_moeny">+3,500,000 원</p>
+              <p class="history_money">+3,500,000 원</p>
             </li>
             <li class="card_history">
               <p class="history_day">2026.01.21</p>
               <p class="history_title">GS25 편의점</p>
-              <p class="history_moeny minus">-12,300 원</p>
+              <p class="history_money minus">-12,300 원</p>
             </li>
             <li class="card_history">
               <p class="history_day">2026.01.21</p>
               <p class="history_title">카카오페이 송금</p>
-              <p class="history_moeny minus">-50,000 원</p>
+              <p class="history_money minus">-50,000 원</p>
             </li>
             <li class="card_history">
               <p class="history_day">2026.01.20</p>
               <p class="history_title">쿠팡 결제</p>
-              <p class="history_moeny minus">-89,000 원</p>
+              <p class="history_money minus">-89,000 원</p>
             </li>
           </ul>
         </div>
-      </div>
 
+        <!-- 카드 관리 영역 -->
+         <div class="tab_content card_management" id="card-management" role="tabpanel" aria-labelledby="tab-card-management">
+            <h2 class="tab_body_title">보유 카드</h2>
+
+            <ul class="tab_scoll_area">
+              <li class="card_keep">
+                <p class="keep_title">신한카드</p> 
+                <p class="keep_type">VISA</p> 
+                <p class="keep_number">1234 5678 9012 3456</p> 
+                <p class="keep_text">이번 달 사용액</p> 
+                <p class="keep_money">1,234,560 원</p> 
+              </li>
+              <li class="card_keep mastercard">
+                <p class="keep_title">KB국민카드</p> 
+                <p class="keep_type">Mastercard</p> 
+                <p class="keep_number">9876 5432 1098 7654</p> 
+                <p class="keep_text">이번 달 사용액</p> 
+                <p class="keep_money">567,890 원</p> 
+              </li>
+            </ul>
+         </div>
+      </div>
     </article>
   </main>
 </body>

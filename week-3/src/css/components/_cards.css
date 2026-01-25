@@ -18,7 +18,7 @@
   }
 
   &:nth-child(even) {
-    .account_moeny {
+    .account_money {
       color: var(--success-green);
     }
   }
@@ -38,7 +38,7 @@
     line-height: 1.2;
   }
   
-  .account_moeny {
+  .account_money {
     font-size: 1.25rem;
     color: var(--point-blue);
     font-weight: 700;
@@ -122,7 +122,7 @@
     order: 1;
   }
 
-  .history_moeny {
+  .history_money {
     font-size: 1rem;
     font-weight: 700;
     color: var(--point-blue);
@@ -134,5 +134,68 @@
     &.minus {
       color: var(--waring-red);
     }
+  }
+}
+
+/* 카드 관리 */
+.card_keep {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto auto;
+  padding: 28px 26px 26px 23px;
+  background-color: var(--card-gray);
+  border-radius: 14px;
+  grid-template-areas:
+    "title  ."
+    "number number"
+    "text   type"
+    "money  type";
+
+  &.mastercard {
+    background-color: var(--point-blue);
+  }
+
+  &+& {
+    margin-block: 16px;
+  }
+
+  .keep_title {
+    grid-area: title;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .keep_type {
+    grid-area: type;
+    align-self: end;
+    justify-self: end;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .keep_number {
+    grid-area: number;
+    font-family: 'menlo';
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-block-start: 29px;
+    color: var(--white);
+  }
+
+  .keep_text {
+    grid-area: text;
+    font-size: 0.75rem;
+    color: var(--have-card-text);
+    margin-block-start: 29px;
+  }
+
+  .keep_money {
+    grid-area: money;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-block-start: 5px;
   }
 }
