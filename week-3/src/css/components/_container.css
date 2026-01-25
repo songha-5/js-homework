@@ -39,7 +39,7 @@ article {
 
 /* 계좌 정보 영역 */
 .account_inquiry {
-  display: none;
+  display: block;
 }
 
 /* 투자 현황 영역 */
@@ -49,5 +49,10 @@ article {
 
 /* 최근 거래 카드 영역 */
 .transaction_history {
+  display: none;
+}
+
+/* 카드 관리 영역 */
+.card_management {
   display: none;
 }
