@@ -39,7 +39,7 @@ article {
 
 /* 탭 영역 */
 .tab_content {
-  display: block;
+  display: none;
 
   &.tab {
     display: block;
