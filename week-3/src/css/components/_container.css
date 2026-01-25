@@ -37,22 +37,11 @@ article {
   }
 }
 
-/* 계좌 정보 영역 */
-.account_inquiry {
+/* 탭 영역 */
+.tab_content {
   display: block;
-}
 
-/* 투자 현황 영역 */
-.investment_status {
-  display: none;
-}
-
-/* 최근 거래 카드 영역 */
-.transaction_history {
-  display: none;
-}
-
-/* 카드 관리 영역 */
-.card_management {
-  display: none;
+  &.tab {
+    display: block;
+  }
 }
