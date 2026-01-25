@@ -22,4 +22,5 @@
   --card-outline-gray: hsla(0, 0%, 87%, 1);
   --outline-gray: hsla(0, 0%, 0%, 0.2);
   --button-gray: hsla(0, 0%, 85%, 1);
+  --have-card-text: hsla(216, 10%, 90%, 1);
 }
