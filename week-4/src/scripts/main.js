@@ -1,10 +1,26 @@
 // TODO
-// querySelectorAll로 `data-select="card"`를 선택
 // - closest으로 `data-card="card"`선택해서 이벤트 추가
-// - target으로 맞는지 확인 후 반환/ null이면 바로 리턴
-// - 맞으면 add('.checked')
-// - 다른것들은 제거 ( 어떻게 할지 고민 ) // 밖에서 선언한거 불러오면 오류생김
-// - 변수체크한거에서 closest(.card-section).querySelect('.card').remove 가능한지
+const cardSection = document.querySelector('[data-select="card"')
+
+cardSection.addEventListener('click', (e) => {
+  // const target = e.target.closest('.card_button')
+  const target = e.target.closest('.card_button')
+  
+  // 변수 타겟이 없을때 null(에러)이 반환되므로 바로 반환하여 오류가 안나게 방지
+  if(!target) return
+
+  // 변수에서 부모로 올라가 다른 버튼들을 선택해서 조작할 수 있게 선택
+  const otherButton = target.closest('[data-select="card"]').querySelector('.checked')
+  
+  // 두번 누를때는?
+  e.preventDefault()
+  if(otherButton) {
+    otherButton.classList.remove('checked')
+  }
+  target.classList.add('checked')
+})
+
+
 
 // forEach???
 // 데이터를 배열로 넣을때? 그런데 처음 데이터를 뿌릴때 넣을거라 상관없지 않을까?
