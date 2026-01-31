@@ -20,6 +20,7 @@
   }
 
   &.checked {
+    translate: 0 -10px;
     position: relative;
     border: 2px solid var(--card-border-point);
     outline: 2px solid var(--card-outline);
