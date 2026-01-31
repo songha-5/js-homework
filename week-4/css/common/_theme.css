@@ -1,3 +1,15 @@
 :root {
+  --black: hsla(0, 0%, 0%, 1);
+  --withe: hsla(0, 0%, 100%, 1);
 
+  --card-title: hsla(212, 20%, 62%, 1);
+  --card-money: hsla(209, 56%, 8%, 1);
+  --card-border: hsla(210, 30%, 96%, 1);
+  --card-bashline: hsla(216, 33%, 97%, 1);
+  --card-background-shadow: hsla(224, 33%, 18%, 0.1);
+  --card-background-shadow-point: hsla(218, 67%, 87%, 1);
+
+  --card-point: hsla(219, 84%, 59%, 1);
+  --card-background: hsla(220, 84%, 95%, 1);
+  --card-border-point: hsla(216, 96%, 47%, 1);
 }
