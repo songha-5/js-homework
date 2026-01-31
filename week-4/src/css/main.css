@@ -7,3 +7,4 @@
 @import './common/_theme.css' layer(theme);
 
 @import './components/_container.css' layer(components);
+@import './components/_card.css' layer(components);
