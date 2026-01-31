@@ -15,73 +15,78 @@
 
   <!-- 요금제 리스트 버튼 -->
   <section class="card-section" data-select="card">
-    <button class="card_button">
+    <button class="card_button checked" role="radio" aria-checked="false">
       <h2 class="card_title">BASIC</h2>
       <p class="card_money">Free</p>
 
       <ul class="card_sub_content">
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">기본 대시보드 제공</span>
         </li>
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">월 10회 리포트</span>
         </li>
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">커뮤니티 지원</span>
         </li>
       </ul>
     </button>
 
-    <button class="card_button">
+    <button class="card_button" role="radio" aria-checked="false">
       <h2 class="card_title">STANDARD</h2>
       <p class="card_money">₩15,000</p>
 
       <ul class="card_sub_content">
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">모든 기능 무제한</span>
         </li>
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">광고 제거</span>
         </li>
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">이메일 고객 지원</span>
         </li>
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">데이터 내보내기</span>
         </li>
       </ul>
     </button>
 
-    <button class="card_button">
+    <button class="card_button" role="radio" aria-checked="false">
       <h2 class="card_title">PREMIUM</h2>
       <p class="card_money">₩30,000</p>
 
       <ul class="card_sub_content">
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">STANDARD 혜택 전체</span>
         </li>
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">전담 매니저 배정</span>
         </li>
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">API 액세스 권한</span>
         </li>
         <li class="card_sub_list">
-          <i class="checked"></i>
+          <i class="list_checked"></i>
           <span class="crad_sub_title">초기 설정 컨설팅</span>
         </li>
       </ul>
     </button>
   </section>
+
+  <!-- 요금제 선택 노티 -->
+  <div class="card_noti" aria-live="polite">
+    <span class="card_noti_step">premium</span>플랜(<span class="card_noti_money">30,000</span>원)을 선택하셨습니다.
+  </div>
 </body>
 </html>
