@@ -1,4 +1,86 @@
 .card_button {
-
+  display: flex;
+  flex-flow: column;
+  padding: 40px 33px;
+  min-height: 338px;
+  border-radius: 20px;
+  border: 2px solid var(--card-border);
   background-color: var(--white);
+  outline-color: var(--card-outline);
+  transition: border 200ms ease-in-out, translate 200ms ease-in-out, outline 100ms ease-in-out;
+
+  &:hover {
+    translate: 0 -10px;
+    border-color: var(--card-border-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--card-outline);
+  }
+
+  &.checked {
+    position: relative;
+    border: 2px solid var(--card-border-point);
+    outline: 2px solid var(--card-outline);
+    background-color: var(--card-background);
+
+    .card_title {
+      color: var(--card-border-point);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 24px;
+      height: 24px;
+      background: url('/src/images/icon-checkmark.svg') center center / cover;
+    }
+  }
+}
+
+.card_title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--card-title);
+}
+
+.card_money {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--card-money);
+  margin-block-start: 25px;
+}
+
+.card_sub_content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-block-start: 25px;
+  margin-block-start: 25px;
+  border-top: 1px solid var(--card-dashline);
+  
+  .card_sub_list {
+    text-align: left;
+
+    .list_checked {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: url('/src/images/icon-check.svg');
+    }
+
+    .crad_sub_title {
+      font-size: 15px;
+      margin-inline-start: 0.375rem;
+      color: var(--black);
+    }
+  }
+}
+
+.card_noti {
+  
 }
